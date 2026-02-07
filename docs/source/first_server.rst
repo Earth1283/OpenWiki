@@ -8,9 +8,9 @@ Picking Your Server Software
 
 There are many open and closed sourced Minecraft server software avalible 
 for you to chose from that many do not know which to chose. For instance,
-there is the obvious choise of `PaperMC <https://papermc.io/downloads/paper>`,
+there is the obvious choise of `PaperMC <https://papermc.io/downloads/paper>`_,
 and the newer options of "performance forks" (we will cover that in a momment)
-such as `LeafMC <https://www.leafmc.one/downloads>`.
+such as `LeafMC <https://www.leafmc.one/downloads>`_.
 
 Minecraft server software has came a long way since the early 2010s. It went like this:
 

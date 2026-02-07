@@ -11,40 +11,124 @@ In the Minecraft community, a **"Summer Host"** is a term used to describe a sho
 The Summer Host Bingo
 ---------------------
 
-How many of these boxes does your potential host check? Use this grid to evaluate their legitimacy.
+How many of these boxes does your potential host check? Use this grid to evaluate their legitimacy. **Click a tile to mark it.**
+
+.. raw:: html
+
+   <div id="bingo-score" style="font-size: 1.5em; font-weight: bold; margin-bottom: 20px; text-align: center; padding: 10px; background: #f8f9fa; border-radius: 8px; border: 2px solid #dee2e6;">
+      Bingo Score: <span id="score-val">0</span> / 9
+   </div>
+
+   <style>
+      .bingo-tile {
+         cursor: pointer;
+         transition: all 0.3s ease !important;
+      }
+      .bingo-tile:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+      }
+      .bingo-tile.marked {
+         background-color: #ffcccc !important;
+         border-color: #ff0000 !important;
+         opacity: 0.8;
+      }
+      .bingo-tile.marked .sd-card-header {
+         background-color: #ff0000 !important;
+         color: white !important;
+      }
+      .bingo-tile.marked::after {
+         content: "❌";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         font-size: 5em;
+         opacity: 0.2;
+         pointer-events: none;
+      }
+   </style>
+
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+         const cards = document.querySelectorAll('.bingo-tile');
+         const scoreVal = document.getElementById('score-val');
+         let score = 0;
+
+         cards.forEach(card => {
+            card.addEventListener('click', function() {
+               this.classList.toggle('marked');
+               score = document.querySelectorAll('.bingo-tile.marked').length;
+               scoreVal.innerText = score;
+               
+               if (score >= 5) {
+                  document.getElementById('bingo-score').style.borderColor = 'red';
+                  document.getElementById('bingo-score').style.color = 'red';
+               } else {
+                  document.getElementById('bingo-score').style.borderColor = '#dee2e6';
+                  document.getElementById('bingo-score').style.color = 'inherit';
+               }
+            });
+         });
+      });
+   </script>
 
 .. grid:: 1 2 3 3
    :gutter: 3
 
    .. grid-item-card:: 💰 Unrealistic Pricing
       :class-header: sd-bg-warning
+      :class-card: bingo-tile
 
       Offering "Unlimited" RAM or $1/GB for high-end Ryzen CPUs.
 
    .. grid-item-card:: 🎨 Free Web Template
       :class-header: sd-bg-warning
+      :class-card: bingo-tile
 
       The website uses a stock "host" template without any custom branding.
 
    .. grid-item-card:: 🗨️ Discord Only
       :class-header: sd-bg-warning
+      :class-card: bingo-tile
 
       Support is exclusively through Discord; no professional ticket system.
 
    .. grid-item-card:: 🔒 No Legal Info
       :class-header: sd-bg-warning
+      :class-card: bingo-tile
 
       No registered business address, TOS, or Privacy Policy in the footer.
 
    .. grid-item-card:: 📈 Oversold Nodes
       :class-header: sd-bg-warning
+      :class-card: bingo-tile
 
       Claims 100% CPU usage is "normal" because they put 100 servers on one CPU.
 
    .. grid-item-card:: 📅 "New" Company
       :class-header: sd-bg-warning
+      :class-card: bingo-tile
 
       The domain was registered less than 3 months ago.
+
+   .. grid-item-card:: 🚩 "Custom" Bot
+      :class-header: sd-bg-warning
+      :class-card: bingo-tile
+
+      Their Discord bot is just a renamed public bot (like MEE6 or Dyno).
+
+   .. grid-item-card:: 💸 No Tax Info
+      :class-header: sd-bg-warning
+      :class-card: bingo-tile
+
+      Prices don't include VAT or equivalent where required by law.
+
+   .. grid-item-card:: 📢 Mass Pings
+      :class-header: sd-bg-warning
+      :class-card: bingo-tile
+
+      Frequent @everyone in Discord for minor updates or "owner" mood swings.
 
 Common Red Flags
 ----------------

@@ -3,8 +3,32 @@ Welcome to OpenWiki
 
 **OpenWiki** is an uncensored wiki for server ownership (especially administration) for *Minecraft: Java Edition*.
 
-Check out the :doc:`first_server` section for further information, including
-how to :ref:`installation` the project.
+.. grid:: 1 2 2 3
+   :gutter: 2
+
+   .. grid-item-card:: 🚀 Getting Started
+      :link: first_server
+      :link-type: doc
+
+      New to server hosting? Learn how to pick your software and launch your first instance.
+
+   .. grid-item-card:: ⚡ Optimization
+      :link: optimization
+      :link-type: doc
+
+      Squeeze every bit of performance out of your CPU with our tuning guides.
+
+   .. grid-item-card:: 🛡️ Security
+      :link: security
+      :link-type: doc
+
+      Protect your world from griefers, hackers, and DDoS attacks.
+
+   .. grid-item-card:: 📖 Glossary
+      :link: glossary
+      :link-type: doc
+
+      Confused by the jargon? Check out our list of common server terms.
 
 .. note::
 
@@ -19,3 +43,6 @@ Contents
 .. toctree::
 
    first_server
+   optimization
+   security
+   glossary

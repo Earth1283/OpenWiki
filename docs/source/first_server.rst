@@ -54,3 +54,7 @@ old and discontinued forks such as (CraftBukkit) Bukkit are not advised.
 At a bare minimum, you should use PaperMC, or, if you feel like using a more configurable
 server version, choose PurPurMC. These are the two forks that are regaurded as "most stable"
 for modern Minecraft.
+
+.. warning ::
+    Unless your hardware is **heavily constrained**, do NOT use Leaf. It is
+    not worth the risk

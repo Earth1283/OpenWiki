@@ -12,7 +12,7 @@ how to :ref:`installation` the project.
    click the ⑂ icon on the mottom right corner that reads "⑂ latest ▾.
 
    Click the downards pointing arrow (▾), and you can now select the preferred download method,
-   PDF or EPUB. Chose an applicable method.
+   PDF or EPUB. Chose your preferred method.
 
 Contents
 --------

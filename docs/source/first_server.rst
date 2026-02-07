@@ -57,7 +57,8 @@ for modern Minecraft.
 
 .. warning ::
     Unless your hardware is **heavily constrained**, do NOT use Leaf. It is
-    not worth the risk
+    not worth running the risk of potential playerdata corrution for performance that
+    has yet to proven it's stability.
 
 As a good rule of thumb, always fetch the latest release from the respective source.
 There is absolutely no point in, say, fetching release 123 when release 132 is avalible.

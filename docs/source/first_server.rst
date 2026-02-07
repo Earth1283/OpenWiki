@@ -72,8 +72,7 @@ builds do not cover.
     In order to automate this process (especially if you are on a bare metal VPS), it is
     best if you can run the following bash command:
 
-    ``
-        rm eula.txt; echo "eula=true" > eula.txt
+    `rm eula.txt; echo "eula=true" > eula.txt`
 
     This command removes the origional eula.txt (in case there was some hanging data), and
     the second part of the command, `echo "eula=true"`, outputs `eula=true` to `STDOUT <https://en.wikipedia.org/wiki/Standard_streams>`_.
@@ -87,3 +86,38 @@ Pros and Cons of PaperMC
 PaperMC, as the industry standard for so many years, is known for it's reliability, stability, and performance
 comapred to previous implementations/versions of the Spigot/Bukkit API. PaperMC tries to implement
 vanilla features while maximizing performance.
+
+PaperMC in on itself is very configurable, allowing you access to Bukkit, Spigot, and Paper's configuration
+files. You can tweak mob spawn times, item despawn times, and even configure one of the
+best and most performant anti-xray features on planet Earth.
+
+The obvious disadvantage of PaperMC is that their core development team believes that PaperMC
+should remain as closely vanilla-ish as possible, often rejecting creative options that PurPurMC accepts.
+
+Pros and Cons of PurPurMC
+-------------------------
+PurPurMC, as a fork of Pufferfish (in turn, a fork of Paper), offers more optimizations and creative configuration options
+when compared to traditional Paper. PurPur is famous for their `purpur.yml` that is, though thousands of lines long,
+offers more configurability than any amount of default PaperMC configurations could offer.
+
+PurPur, being a downstream fork from Pufferfish, benefits from Pufferfish's optimizations, which compounds
+towards their further optimizations in purpur.yml.
+
+The downside is clear. PurPurMC traded configurability with ease of use. People get scared off by Purpur's
+thousand-line long `purpur.yml` without deriving its complete value, resulting in an ultimate loss
+of potential features presented by PurPur.
+
+Setting up your first server
+----------------------------
+.. warning::
+    This guide assumes that you have access to the JVM flags of your instance. If you are unable
+    to edit them yourself, you should ask your server hosting provider via a ticket. Legiemate hosts
+    typically allow these requests, while summer hosts that oversell their nodes typically deny such requests,
+    as these flags make the JVM allocate memory more efficiencly. More on this at a later date.
+
+Begin with downloading the server binary (aka, server.jar) from your vendor, be it Paper or Purpur.
+
+Then place it inside your server directory, and then create a file named `eula.txt` with the following content:
+
+ ::
+    eula=true

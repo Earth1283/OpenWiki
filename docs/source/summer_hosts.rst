@@ -103,6 +103,20 @@ Before you pay, read their Terms of Service (ToS) and Refund Policy. Summer host
    * - Lack of a Privacy Policy
      - They may be selling your email or Discord data to other low-quality hosts.
 
+The "Unlimited" Myth
+--------------------
+
+.. admonition:: Physics 101
+   :class: error
+
+   **Unlimited resources do not exist.** Any host promising "Unlimited RAM," "Unlimited CPU," or "Unlimited NVMe Storage" is lying to you.
+
+Computing resources are finite. A physical server has a set amount of RAM sticks and CPU cycles. When a host offers "Unlimited" plans, they are counting on you not actually using the resources. The moment your server starts to grow, they will suspend you for "excessive usage"—the very thing they promised was unlimited.
+
+*   **RAM**: Cannot be "unlimited." The :term:`JVM` requires a specific amount of memory to be allocated via the :term:`Heap`.
+*   **CPU**: You are sharing a physical processor with dozens of other people. You cannot have "unlimited" shares of a finite pie.
+*   **Disk**: Hard drives have physical capacities. "Unlimited" disk space usually means they will ban you if you store more than 10-20GB of backups or world files.
+
 .. tip::
 
    If you find a host using a ToS that still has placeholders like ``[Company Name]`` or ``[Governing Law]``, **close the tab immediately**. It is a 100% guarantee that the host is a fly-by-night operation.

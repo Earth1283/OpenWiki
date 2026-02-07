@@ -13,6 +13,19 @@ Documented Failures
 .. grid:: 1 1 2 2
    :gutter: 3
 
+   .. grid-item-card:: 🧊 CryHosting
+      :class-header: sd-bg-danger sd-text-white
+
+      **Status**: Active (as of Feb 2026)
+      ^^^
+      **Reason**: Technical and Legal Incompetence.
+      
+      * **Legal**: Their ToS contains the infamous ``[Your State/Country Here]`` placeholder. 
+      * **Technical**: Their control panel is a 1-to-1 copy of a `shadowsdash.com <https://shadowsdash.com/>`_ template, with the original credits still in the footer.
+      * **Hardware**: Promises "high-clock speed" CPUs, but users report **Intel Xeons from 2016** clocked at a mere **2.2GHz**.
+      
+      `ToS Proof (Wayback) <https://web.archive.org/web/20260204174543/https://cryhosting.net/terms>`_ | `Panel Proof (Wayback) <https://web.archive.org/web/20260207102341/https://deploy.cryhosting.net/auth/login>`_
+
    .. grid-item-card:: 💀 SampleHost 1
       :class-header: sd-bg-danger sd-text-white
 

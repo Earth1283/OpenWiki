@@ -15,6 +15,7 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
+    'sphinxcontrib_mermaid',
 ]
 
 intersphinx_mapping = {

@@ -9,7 +9,7 @@ how to :ref:`installation` the project.
 .. note::
 
    If you wish to download this project as an archived PDF/EPUB file,
-   click the ⑂ icon on the mottom right corner that reads "⑂ latest ▾.
+   click the ⑂ icon on the mottom right corner that reads "⑂ latest ▾".
 
    Click the downards pointing arrow (▾), and you can now select the preferred download method,
    PDF or EPUB. Chose your preferred method.
@@ -19,4 +19,4 @@ Contents
 
 .. toctree::
 
-   usage
+   first_server

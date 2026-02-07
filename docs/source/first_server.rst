@@ -72,7 +72,8 @@ builds do not cover.
     In order to automate this process (especially if you are on a bare metal VPS), it is
     best if you can run the following bash command:
 
-    `rm eula.txt; echo "eula=true" > eula.txt`
+    .. highlight::bash:
+        rm eula.txt; 
 
     This command removes the origional eula.txt (in case there was some hanging data), and
     the second part of the command, `echo "eula=true"`, outputs `eula=true` to `STDOUT <https://en.wikipedia.org/wiki/Standard_streams>`_.
@@ -119,7 +120,7 @@ Begin with downloading the server binary (aka, server.jar) from your vendor, be 
 
 Then place it inside your server directory, and then create a file named `eula.txt` with the following content:
 
-.. code-block::
+.. codeblock::
     eula=true
 
 This agrees to the Mojang EULA before the server starts. Then, configure your startup flags.

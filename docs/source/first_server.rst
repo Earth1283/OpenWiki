@@ -1,10 +1,10 @@
 Creating Your First Server
-=====
+==========================
 
 .. _installation:
 
 Picking Your Server Software
-------------
+----------------------------
 
 There are many open and closed sourced Minecraft server software avalible 
 for you to chose from that many do not know which to chose. For instance,
@@ -15,6 +15,7 @@ such as `LeafMC <https://www.leafmc.one/downloads>`.
 Minecraft server software has came a long way since the early 2010s. It went like this:
 
 .. mermaid::
+
     graph TD
         %% Nodes
         Vanilla[Vanilla - Mojang Official]

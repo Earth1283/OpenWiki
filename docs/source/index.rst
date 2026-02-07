@@ -3,16 +3,15 @@ Welcome to OpenWiki
 
 **OpenWiki** is an uncensored wiki for server ownership (especially administration) for *Minecraft: Java Edition*.
 
-Check out the :doc:`usage` section for further information, including
+Check out the :doc:`first_server` section for further information, including
 how to :ref:`installation` the project.
 
 .. note::
 
    If you wish to download this project as an archived PDF/EPUB file,
-   click the ⑂ icon on the mottom right corner that reads "⑂ latest ▾".
-
-   Click the downards pointing arrow (▾), and you can now select the preferred download method,
-   PDF or EPUB. Chose your preferred method.
+   click the ⑂ icon on the bottom right corner that reads "⑂ latest ▾".
+   Click the downwards pointing arrow (▾), and you can now select the preferred download method,
+   PDF or EPUB. Choose your preferred method.
 
 Contents
 --------

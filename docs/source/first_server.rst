@@ -119,5 +119,9 @@ Begin with downloading the server binary (aka, server.jar) from your vendor, be 
 
 Then place it inside your server directory, and then create a file named `eula.txt` with the following content:
 
- ::
+.. code-block::
     eula=true
+
+This agrees to the Mojang EULA before the server starts. Then, configure your startup flags.
+If you are on a bare metal VPS, do **NOT** allocate all your avalible memory to the Java Heap. This will
+lead to your operating system running out of memory and your server crashing.

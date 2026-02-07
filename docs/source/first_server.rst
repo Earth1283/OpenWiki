@@ -73,7 +73,7 @@ builds do not cover.
     best if you can run the following bash command:
 
     .. highlight::bash:
-        rm eula.txt; 
+        rm eula.txt; echo "eula=true" > eula.txt
 
     This command removes the origional eula.txt (in case there was some hanging data), and
     the second part of the command, `echo "eula=true"`, outputs `eula=true` to `STDOUT <https://en.wikipedia.org/wiki/Standard_streams>`_.
@@ -126,3 +126,16 @@ Then place it inside your server directory, and then create a file named `eula.t
 This agrees to the Mojang EULA before the server starts. Then, configure your startup flags.
 If you are on a bare metal VPS, do **NOT** allocate all your avalible memory to the Java Heap. This will
 lead to your operating system running out of memory and your server crashing.
+It is best for you, in this case, to allocate memory with the following function:
+:math:`RAM_{physical}-2GB=RAM_{allocated}`. This provides the JVM with enough
+headroom to store non-heap objects, for Linux to breathe, and for other background processes.
+
+Let's prepare startup flags! Java, unlike C/C++, has a Garbage Collector. To avoid complicating things,
+I will simply define it as "something that cleans up unused memory". The default Garbage Collector is decent,
+though with Minecraft, it is not that ideal. So we need better flags.
+
+Luckily, Aikar has came to the rescue with his flags. You can check his flags out on
+`flags.sh <https://www.flags.sh>`_. These flags aim to improve the performance of the JVM and it's Garbage
+Collector aside from the main game. But be weary that this is not a "set and forget" value that you can
+set once and forget. More optimization effort will have to be put into the main server configurations to 
+truly improve performance.

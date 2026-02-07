@@ -1,9 +1,9 @@
-Template for the Read the Docs tutorial
-=======================================
+OpenWiki
+========
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
+**OpenWiki** is an uncensored wiki for server ownership (especially administration) for *Minecraft: Java Edition*.
 
-Read the tutorial here:
+Documentation
+-------------
 
-https://docs.readthedocs.io/en/stable/tutorial/
+The documentation is built using Sphinx and is available on Read the Docs.

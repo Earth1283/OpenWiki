@@ -3,6 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "lumache"
-authors = [{name = "Graziella", email = "graziella@lumache"}]
-dynamic = ["version", "description"]
+name = "OpenWiki"
+authors = [{name = "OpenWiki contributors"}]
+version = "0.1.0"
+description = "An uncensored wiki for server ownership for Minecraft: Java Edition"

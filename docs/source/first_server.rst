@@ -58,3 +58,31 @@ for modern Minecraft.
 .. warning ::
     Unless your hardware is **heavily constrained**, do NOT use Leaf. It is
     not worth the risk
+
+As a good rule of thumb, always fetch the latest release from the respective source.
+There is absolutely no point in, say, fetching release 123 when release 132 is avalible.
+New releases often fix security vulnerabilities and dupilication glitches/exploits which older
+builds do not cover.
+
+.. tip::
+    If you are running a server with a version number higher than `1.9.2`, the server
+    would typically make an `eula.txt` file for you to set `eula=false` to `eula=true`.
+    
+    In order to automate this process (especially if you are on a bare metal VPS), it is
+    best if you can run the following bash command:
+
+    .. code-block:: bash
+        rm eula.txt; echo "eula=true" > eula.txt
+
+    This command removes the origional eula.txt (in case there was some hanging data), and
+    the second part of the command, `echo "eula=true"`, outputs `eula=true` to `STDOUT <https://en.wikipedia.org/wiki/Standard_streams>`_.
+    The `>` operator catpures the STDOUT and moves it to a file named `eula.txt`, effectively
+    agreeing to the EULA for you.
+
+The following sectinos will explore the nuances of certain server software.
+
+Pros and Cons of PaperMC
+------------------------
+PaperMC, as the industry standard for so many years, is known for it's reliability, stability, and performance
+comapred to previous implementations/versions of the Spigot/Bukkit API. PaperMC tries to implement
+vanilla features while maximizing performance.

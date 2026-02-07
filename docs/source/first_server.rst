@@ -72,7 +72,7 @@ builds do not cover.
     In order to automate this process (especially if you are on a bare metal VPS), it is
     best if you can run the following bash command:
 
-    .. code-block:: bash
+    ``
         rm eula.txt; echo "eula=true" > eula.txt
 
     This command removes the origional eula.txt (in case there was some hanging data), and

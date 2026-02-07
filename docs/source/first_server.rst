@@ -47,4 +47,10 @@ Minecraft server software has came a long way since the early 2010s. It went lik
         style Leaf fill:#ff6666,stroke:#800,stroke-width:3px,stroke-dasharray: 5 5
 
 As you can see, the "evolution" of server forks in the past decade or so
-has been blazingly fast.
+has been blazingly fast. This started from the vanilla server.jar, which is
+distribtued by Mojang. It is **not advised** for you to use this. Similarly,
+old and discontinued forks such as (CraftBukkit) Bukkit are not advised.
+
+At a bare minimum, you should use PaperMC, or, if you feel like using a more configurable
+server version, choose PurPurMC. These are the two forks that are regaurded as "most stable"
+for modern Minecraft.

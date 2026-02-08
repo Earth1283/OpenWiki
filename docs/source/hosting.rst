@@ -42,7 +42,7 @@ Minecraft is **mostly single-threaded** (except Folia). This means that a CPU wi
     *   **Excellent**: Ryzen 9 7950X, Ryzen 9 5950X, Intel i9-14900K.
     *   **Good**: Ryzen 7 5800X, Intel i7-12700K, or Zen3 or Zen4 AMD EPYCs are acceptable too
     *   **Avoid**: Intel Xeon E5 series (too old/slow), "Intel Core" with no model number.
-2.  **Storage**: Only accept **NVMe SSDs**. Standard SATA SSDs or HDDs will cause major lag during world saving and chunk loading.
+2.  **Storage**: Only accept **NVMe SSDs**. Standard SATA SSDs or HDDs will cause major lag during world saving and chunk loading, though modern SATA SSDs have mostly neutralized the issue.
 3.  **RAM**: 8GB to 32GB is the sweet spot for most community servers. Anything more than 32GB for a single instance often requires advanced :term:`Garbage Collector (GC)` tuning.
 
 The Anatomy of a Great Host
@@ -59,11 +59,19 @@ A "good" host is more than just a fast CPU. Look for these pillars of quality wh
 The "Summer Host" Trap
 ----------------------
 
-A :doc:`summer_hosts` is a fly-by-night operation started by someone with no business experience. They often disappear when school starts, taking your money and your world files with them.
+A :doc:`summer_hosts` is a fly-by-night operation started by someone with no business experience.
+The person (usually referred to as the CEO by themselves) typically belongs to the demographic
+of young adults, which is fitting, considering that the people who fall victim to the scam often
+belong to such demographics.
+
+They often disappear when school starts, taking your money and your world files with them.
 
 .. warning::
 
+   **🚩 RED FLAGS 🚩**
+
    **Impossibly Low Pricing** is the #1 red flag. If you see a host offering a Ryzen 7950X for $1/GB of RAM, they are either lying about the hardware or overselling the node so heavily that your server will be unplayable.
+
    **Unlimited Resources** is physically impossible. See below for why.
 
 Physically Impossible Pricing

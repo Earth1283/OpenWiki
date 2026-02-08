@@ -72,7 +72,7 @@ They often disappear when school starts, taking your money and your world files 
 
    **Impossibly Low Pricing** is the #1 red flag. If you see a host offering a Ryzen 7950X for $1/GB of RAM, they are either lying about the hardware or overselling the node so heavily that your server will be unplayable.
 
-   **Unlimited Resources** is physically impossible. See below for why.
+   **Unlimited Resources** is physically impossible. There is a finite quantity of particles in the universe, so is compute.
 
 Physically Impossible Pricing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,9 +82,12 @@ Consider the math: A high-end dedicated server costs roughly $100-$200 per month
 *   After payment processing fees, taxes, and staff costs, they are **losing money**.
 *   **The Result**: They will eventually exit-scam (shut down without notice) or drastically reduce performance to survive.
 
-More specifically, there are a total of :math:`10^{80}` particles in the observable universe. Note that :math:`10^{80}≠∞`.
-Computing resources rely on these particles to even exsist. Because there is a finite number of particles,
-it is, therefore, ***physically impossible*** for "infinite computing resources" to even exsist
+So what will they do to keep themselves alive? They will begin to oversell their nodes!
+
+Knowing the single-threaded design of Minecraft servers, they will try to fit around :math:`1.5` through :math:`2` times
+the memory's capacity. How did they manage to do this? JVM arguments and virtualisation. By setting the `-Xms` flag of the
+JVM to some number around 128M, the Minecraft server will have to constantly ask the JVM, which in turn asks the OS for new
+memory as they are required. This is very slow, but maximises profit with margins that would make AWS (Amazon Web Services) weep.
 
 How to Spot a Scammer
 ~~~~~~~~~~~~~~~~~~~~~

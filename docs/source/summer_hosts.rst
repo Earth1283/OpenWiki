@@ -165,10 +165,10 @@ How to Verify a Host
       ^^^
       Download the latest `.jar` from the `HardwareAudit Release Folder <https://github.com/Earth1283/HardwareAudit>`_.
       
-      * **Note**: A new obfuscated build with a unique SHA-256 hash is generated every 24 hours to prevent tampering.
+      * **Note**: In order to prevent hosts from banning the ``SHA-256`` fingerprint of our plugin, we have set up actions to build a new JAR file every 24 hours. They are named OBFS-1, 2 and 3 respectively.
       * **Command**: Run ``/audit all`` to reveal the **REAL** CPU model, core counts, and storage speeds. 
       
-      If the results don't match what you paid for (e.g., you see an Intel Xeon when they promised a Ryzen 7950X), you are being scammed.
+      If the results don't match what you paid for (e.g., you see an Intel Xeon when they promised a Ryzen 7950X, which is quite common), you are being scammed. Leave immediately.
 
 3. **Analyze the Paperwork**: Summer hosts often have "legal" documents full of holes.
 
@@ -184,13 +184,13 @@ Before you pay, read their Terms of Service (ToS) and Refund Policy. Summer host
    * - The Red Flag
      - Why it's Dangerous
    * - ``[Insert State/Country Here]``
-     - They didn't even read their own ToS. This document is legally non-binding and shows total lack of professionalism.
+     - They didn't even read their own ToS when copy pasting. This document is legally non-binding and shows total lack of professionalism.
    * - "We reserve the right to cancel for any reason"
-     - This is often used as a "get out of jail free" card to terminate your server and keep your money if you complain about lag.
+     - This is often used as a "get out of jail free" card to terminate your server and keep your money if you complain about lag. The host could literally terminate your server if they woke up on the wrong side of their bed.
    * - "No refunds under any circumstances"
-     - Legitimate businesses offer pro-rated refunds or at least a 24-72 hour money-back guarantee.
+     - Legitimate businesses offer pro-rated refunds or at least a 24-72 hour money-back guarantee. If they offer a vague statement, it is best to steer clear of that.
    * - Lack of a Privacy Policy
-     - They may be selling your email or Discord data to other low-quality hosts.
+     - They may be selling your email or Discord data to other low-quality hosts, or to advertisers for profit.
 
 The "Unlimited" Myth
 --------------------
@@ -200,12 +200,13 @@ The "Unlimited" Myth
 
    **Unlimited resources do not exist.** Any host promising "Unlimited RAM," "Unlimited CPU," or "Unlimited NVMe Storage" is lying to you.
 
-Computing resources are finite. A physical server has a set amount of RAM sticks and CPU cycles. When a host offers "Unlimited" plans, they are counting on you not actually using the resources. The moment your server starts to grow, they will suspend you for "excessive usage"—the very thing they promised was unlimited.
+Computing resources are finite. A physical server has a ***FINITE*** amount of RAM sticks and CPU cycles. When a host offers "Unlimited" plans, they are counting on you not actually using the resources. The moment your server starts to grow, they will suspend you for "excessive usage"—the very thing they promised was unlimited.
 
 *   **RAM**: Cannot be "unlimited." The :term:`JVM` requires a specific amount of memory to be allocated via the :term:`Heap`.
 *   **CPU**: You are sharing a physical processor with dozens of other people. You cannot have "unlimited" shares of a finite pie.
 *   **Disk**: Hard drives have physical capacities. "Unlimited" disk space usually means they will ban you if you store more than 10-20GB of backups or world files.
 
-.. tip::
+.. warning::
 
-   If you find a host using a ToS that still has placeholders like ``[Company Name]`` or ``[Governing Law]``, **close the tab immediately**. It is a 100% guarantee that the host is a fly-by-night operation.
+   If you find a host using a ToS that still has placeholders like ``[Company Name]`` or ``[Governing Law]``, **close the tab immediately**.
+   It is 100% a fly-by-night operation made by a teenager in their basement.

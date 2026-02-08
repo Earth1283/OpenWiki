@@ -7,44 +7,99 @@ Welcome to OpenWiki
 
    This wiki is built for **low-budget server creation and moderation**. We are here to prove that "premium" doesn't always mean good. Most of the tools and software recommended here are Free and Open Source (FOSS).
 
-.. grid:: 1 2 2 3
-   :gutter: 2
+The Administrator's Roadmap
+---------------------------
 
-   .. grid-item-card:: 🚀 Getting Started
+Setting up a professional-grade server can be daunting. Follow this step-by-step guide to go from a blank folder to a thriving community.
+
+.. grid:: 1 1 2 2
+   :gutter: 3
+
+   .. grid-item-card:: 1. Choosing a Host
+      :link: hosting
+      :link-type: doc
+
+      Don't fall for "unlimited" traps. Learn why VPS hosting is superior to managed hosting and how to find real hardware.
+      ^^^
+      **Key Task**: Compare providers and avoid "Summer Hosts" with impossible pricing.
+
+   .. grid-item-card:: 2. Preparation & Environment
       :link: first_server
       :link-type: doc
 
-      New to server hosting? Learn how to pick your software and launch your first instance.
+      Once you have your host, you need a solid environment. Install the correct Java version and prepare your OS (Windows, Linux, or macOS).
+      ^^^
+      **Key Task**: Install Java 21 and configure your user permissions.
 
-   .. grid-item-card:: ⚡ Optimization
+   .. grid-item-card:: 3. Software Selection
+      :link: first_server
+      :link-type: doc
+
+      Choose the right "flavor" of Minecraft. For most, PaperMC is the standard, while PurpurMC offers more "fun" tweaks.
+      ^^^
+      **Key Task**: Download the latest build of Paper or Purpur.
+
+   .. grid-item-card:: 4. Core Configuration
+      :link: first_server
+      :link-type: doc
+
+      Understand ``server.properties`` and the hidden performance toggles that stop lag before it starts.
+      ^^^
+      **Key Task**: Set simulation distance to 5 and enable online-mode.
+
+   .. grid-item-card:: 5. Launching & JVM Tuning
+      :link: first_server
+      :link-type: doc
+
+      Don't just double-click a JAR. Use Aikar's Flags or ZGC to ensure smooth gameplay without "Lag Spikes."
+      ^^^
+      **Key Task**: Create a startup script with optimized memory flags.
+
+   .. grid-item-card:: 6. Optimization
       :link: optimization
       :link-type: doc
 
-      Squeeze every bit of performance out of your CPU with our tuning guides.
+      Squeeze every drop of performance. Pre-generate your world and tune entity activation ranges to save CPU cycles.
+      ^^^
+      **Key Task**: Use the Chunky plugin to pre-generate a 5,000-block radius.
 
-   .. grid-item-card:: 🛡️ Security
+   .. grid-item-card:: 7. Security & Stability
       :link: security
       :link-type: doc
 
-      Protect your world from griefers, hackers, and DDoS attacks.
+      Protect your hard work. Set up LuckPerms, land claims, and automated off-site backups.
+      ^^^
+      **Key Task**: Install LuckPerms and configure a daily backup schedule.
 
-   .. grid-item-card:: 📖 Glossary
-      :link: glossary
+   .. grid-item-card:: 8. Networking & Access
+      :link: first_server
       :link-type: doc
 
-      Confused by the jargon? Check out our list of common server terms.
+      Open your doors to the world. Learn about port forwarding, VPS hosting, and DDoS protection.
+      ^^^
+      **Key Task**: Configure your firewall and point a domain to your IP.
 
-   .. grid-item-card:: 🏝️ Summer Hosts
-      :link: summer_hosts
+   .. grid-item-card:: 9. Maintenance
+      :link: first_server
       :link-type: doc
 
-      Don't get scammed. Learn how to spot and avoid "summer hosts."
+      A server is a living thing. Learn how to update safely and monitor performance with Spark.
+      ^^^
+      **Key Task**: Run a Spark profiler to identify performance bottlenecks.
 
-   .. grid-item-card:: 💀 Hall of Shame
-      :link: hall_of_shame
-      :link-type: doc
+Avoid Common Pitfalls
+---------------------
 
-      A historical record of failed hosting companies and exit scams.
+Don't let your project fail before it even starts. Learn from the mistakes of others.
+
+*   **The FOSS Alternative Table**: Don't overspend. Many "premium" plugins have high-quality free and open-source alternatives.
+    | :doc:`plugin_alternatives`
+*   **Summer Hosts**: Learn how to spot fly-by-night hosting companies that will disappear with your money.
+    | :doc:`summer_hosts`
+*   **The Hall of Shame**: A historical record of hosting failures and scams to avoid.
+    | :doc:`hall_of_shame`
+*   **Jargon Buster**: Confused by terms like "TPS," "Heap," or "Fork"?
+    | :doc:`glossary`
 
 .. note::
 
@@ -57,9 +112,13 @@ Contents
 --------
 
 .. toctree::
+   :maxdepth: 2
+   :hidden:
 
+   hosting
    first_server
    optimization
+   plugin_alternatives
    security
    summer_hosts
    hall_of_shame

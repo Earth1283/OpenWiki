@@ -57,7 +57,7 @@ The "flavor" of server software you choose determines which plugins you can run 
 
 .. tab-set::
 
-   .. tab-item:: 📜 Spigot
+   .. tab-item:: 📜 `Spigot <https://www.spigotmc.org/>`_
       :sync: spigot
 
       The successor to Bukkit. It introduced "BuildTools" and early performance patches.
@@ -66,7 +66,7 @@ The "flavor" of server software you choose determines which plugins you can run 
       * **Cons**: Slower updates, lacks modern optimizations like Starlight or Lithium.
       * **Verdict**: Legacy. Only use if a specific plugin *requires* it.
 
-   .. tab-item:: 📄 PaperMC
+   .. tab-item:: 📄 `PaperMC <https://papermc.io/>`_
       :sync: paper
 
       The industry standard. It is a :term:`fork` of Spigot that fixes gameplay inconsistencies and massive performance holes.
@@ -75,7 +75,7 @@ The "flavor" of server software you choose determines which plugins you can run 
       * **Cons**: Some technical "vanilla" redstone machines may behave differently.
       * **Verdict**: **Recommended** for 90% of all servers.
 
-   .. tab-item:: 🪵 PurpurMC
+   .. tab-item:: 🪵 `PurpurMC <https://purpurmc.org/>`_
       :sync: purpur
 
       A :term:`fork` of Paper (via Pufferfish) that adds hundreds of "fun" configuration toggles.
@@ -151,7 +151,7 @@ How do players actually get into your world?
 
       1. **Static IP**: Ensure your server PC has a static local IP (e.g., 192.168.1.10).
       2. **Port Forwarding**: Log into your router (usually 192.168.1.1) and forward **25565 TCP/UDP** to your server PC.
-      3. **Dynamic DNS**: Since your home IP changes, use a service like `No-IP` to get a domain name (e.g., ``mycoolserver.ddns.net``).
+      3. **Dynamic DNS**: Since your home IP changes, use a service like `No-IP <https://www.noip.com/>`_ to get a domain name (e.g., ``mycoolserver.ddns.net``).
 
    .. tab-item:: ☁️ VPS Hosting
       :sync: vps
@@ -188,7 +188,7 @@ A server is not a "set and forget" project. It requires consistent care.
    .. tab-item:: 📈 Monitoring
       :sync: maintenance
 
-      * **Timings/Spark**: Use ``/spark profiler`` to see exactly which plugin or entity is causing lag.
+      * **Timings/Spark**: Use `Spark <https://spark.lucko.me/>`_ by running ``/spark profiler`` to see exactly which plugin or entity is causing lag.
       * **TPS**: Monitor your Ticks Per Second. If it's below 20.0, you have work to do.
 
 .. seealso::

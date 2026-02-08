@@ -82,3 +82,51 @@ Minecraft is primarily a **single-threaded** application. This means that having
       ^^^
       Standard SSDs are okay, but NVMe prevents stuttering during heavy autosave operations.
 
+Advanced Configuration Deep Dive
+--------------------------------
+
+While pre-generation is the most important step, fine-tuning your configuration files allows you to handle more players with less lag.
+
+.. tab-set::
+
+   .. tab-item:: 📄 paper-world-defaults.yml
+
+      Located in `config/paper-world-defaults.yml` (1.19+).
+
+      *   ``max-auto-save-chunks-per-tick``: Set to **6**. This spreads the load of saving world data.
+      *   ``prevent-moving-into-unloaded-chunks``: Set to **true**. Prevents players from causing lag by flying into the void.
+      *   ``container-update-tick-rate``: Set to **2** or **3**. Slows down how often chests/hoppers update their inventory visuals.
+      *   ``mob-effects.undead-immune-to-item-replenishable-effects``: Set to **true**.
+
+   .. tab-item:: 📜 spigot.yml
+
+      *   ``save-user-cache-on-stop-only``: Set to **true**. Reduces disk IO during gameplay.
+      *   ``merge-radius``:
+          *   ``item``: **4.0**
+          *   ``exp``: **6.0**
+          (Groups items on the ground to reduce entity count).
+      *   ``entity-activation-range``:
+          *   ``animals``: **16**
+          *   ``monsters``: **24**
+          *   ``raiders``: **48**
+
+   .. tab-item:: 🪵 bukkit.yml
+
+      *   ``spawn-limits``:
+          *   ``monsters``: **50** (Vanilla is 70; 50 is unnoticeable for most players).
+          *   ``animals``: **8**
+          *   ``water-animals``: **3**
+      *   ``ticks-per``:
+          *   ``animal-spawns``: **400** (Spawns animals every 20 seconds instead of every tick).
+          *   ``monster-spawns``: **10** (Spawns monsters every 0.5 seconds).
+
+.. tip::
+
+   **The "ClearLagg" Trap**: Avoid plugins that "clear items" or "kill all mobs" to save lag. These often cause TPS spikes themselves when they run. Proper configuration in the files above is always more efficient.
+
+.. seealso::
+
+   * :doc:`plugin_alternatives`: Find free alternatives to expensive premium plugins.
+   * `PaperMC Optimization Guide <https://docs.papermc.io/paper/optimization>`_: The official documentation for Paper performance.
+
+

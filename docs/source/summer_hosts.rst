@@ -54,6 +54,7 @@ How many of these boxes does your potential host check? Use this grid to evaluat
          const cards = document.querySelectorAll('.bingo-tile');
          const scoreVal = document.getElementById('score-val');
          let score = 0;
+         const winSound = new Audio('https://www.myinstants.com/media/sounds/among-us-role-reveal-sound.mp3');
 
          cards.forEach(card => {
             card.addEventListener('click', function() {
@@ -67,6 +68,10 @@ How many of these boxes does your potential host check? Use this grid to evaluat
                } else {
                   document.getElementById('bingo-score').style.borderColor = '#dee2e6';
                   document.getElementById('bingo-score').style.color = 'inherit';
+               }
+
+               if (score === 9 && this.classList.contains('marked')) {
+                  winSound.play();
                }
             });
          });
@@ -137,7 +142,7 @@ Common Red Flags
 
    .. tab-item:: Technical Signs
 
-      * **Pterodactyl Default**: Zero customization to the panel.
+      * **`Pterodactyl <https://pterodactyl.io/>`_ Default**: Zero customization to the panel.
       * **No Backups**: They expect you to handle all backups manually.
       * **DDoS Claims**: Claiming "unmetered" protection from a provider like Hetzner (which actually has weak game-layer filtering).
 
@@ -150,7 +155,7 @@ Common Red Flags
 How to Verify a Host
 --------------------
 
-1. **Check the Domain Age**: Use a WHOIS lookup tool. If it's brand new, be wary.
+1. **Check the Domain Age**: Use a `WHOIS lookup tool <https://who.is/>`_. If it's brand new, be wary.
 2. **Audit the Hardware**: Don't take their word for it. Use a specialized tool to see what is actually under the hood.
 
    .. card:: 🛠️ HardwareAudit Plugin

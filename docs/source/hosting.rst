@@ -23,7 +23,9 @@ There are two primary ways to host a Minecraft server: **Virtual Private Servers
 
    .. tab-item:: 🧊 Managed Hosting
 
-      These providers use a control panel (like Pterodactyl) to let you upload a JAR and click "Start."
+      These providers use a control panel (like Pterodactyl) to let you upload a JAR and click "Start".
+      It shields you from the complexity of the real host on a VPS. As a trade-off, you will have a much
+      simpler and "dumber" config system.
 
       *   **Ease of Use**: No Linux knowledge required.
       *   **Overselling**: Many providers "oversell" their nodes, putting too many servers on one CPU, leading to "stuttering."

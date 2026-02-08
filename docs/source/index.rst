@@ -127,7 +127,6 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
 
    hosting
    first_server

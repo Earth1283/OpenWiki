@@ -126,7 +126,7 @@ Contents
 --------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    hosting
    first_server

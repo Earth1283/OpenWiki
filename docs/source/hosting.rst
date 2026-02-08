@@ -14,11 +14,12 @@ There are two primary ways to host a Minecraft server: **Virtual Private Servers
 
       A VPS gives you a slice of a physical server with your own Operating System (usually Linux).
 
-      *   **Control**: You have full root access. You can install any Java version, any database, and any monitoring tools you want.
+      *   **Control**: You have full root access. You can install any Java version, any database, and any monitoring tools you want. If your neighbor is mining crypto, your server remains lag-free
       *   **No Limits**: There are no "player slot" limits. You are only limited by your hardware.
       *   **Learning**: You will learn valuable Linux administration skills.
       *   **Transparency**: You know exactly what resources you are getting.
       *   **Verdict**: **Best for serious administrators** who want stability and growth.
+      *   *Feeling lazy?* Try MCSManager, an open source control panel that is easy to set up and has exceptional security compared to it's simplicity.
 
    .. tab-item:: 🧊 Managed Hosting
 
@@ -33,11 +34,11 @@ There are two primary ways to host a Minecraft server: **Virtual Private Servers
 What to Look for in Hardware
 ----------------------------
 
-Minecraft is **single-threaded**. This means that a CPU with 64 slow cores is significantly worse than a CPU with 4 very fast cores.
+Minecraft is **mostly single-threaded** (except Folia). This means that a CPU with 64 slow cores is significantly worse than a CPU with 4 very fast cores.
 
 1.  **CPU Model**: Look for high-frequency modern CPUs.
     *   **Excellent**: Ryzen 9 7950X, Ryzen 9 5950X, Intel i9-14900K.
-    *   **Good**: Ryzen 7 5800X, Intel i7-12700K.
+    *   **Good**: Ryzen 7 5800X, Intel i7-12700K, or Zen3 or Zen4 AMD EPYCs are acceptable too
     *   **Avoid**: Intel Xeon E5 series (too old/slow), "Intel Core" with no model number.
 2.  **Storage**: Only accept **NVMe SSDs**. Standard SATA SSDs or HDDs will cause major lag during world saving and chunk loading.
 3.  **RAM**: 4GB to 8GB is the sweet spot for most community servers. Anything more than 12GB for a single instance often requires advanced :term:`Garbage Collector (GC)` tuning.

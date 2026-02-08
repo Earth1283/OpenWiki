@@ -5,5 +5,5 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "OpenWiki"
 authors = [{name = "Earth1283"}]
-version = "0.1.0"
-description = "An uncensored wiki for server ownership for Minecraft: Java Edition"
+version = "1.0.0"
+description = "An uncensored wiki for server ownership for Minecraft: Java Edition servers"

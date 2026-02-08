@@ -51,7 +51,7 @@ Setting up a professional-grade server can be daunting. Follow this step-by-step
       :link: first_server
       :link-type: doc
 
-      Understand ``server.properties`` and the hidden performance toggles that stop lag before it starts.
+      Understand server configuration and the hidden performance toggles that stop lag before it starts.
       ^^^
       **Key Task**: Set simulation distance to 5 and enable online-mode.
 

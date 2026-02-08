@@ -43,7 +43,7 @@ Minecraft is **mostly single-threaded** (except Folia). This means that a CPU wi
     *   **Good**: Ryzen 7 5800X, Intel i7-12700K, or Zen3 or Zen4 AMD EPYCs are acceptable too
     *   **Avoid**: Intel Xeon E5 series (too old/slow), "Intel Core" with no model number.
 2.  **Storage**: Only accept **NVMe SSDs**. Standard SATA SSDs or HDDs will cause major lag during world saving and chunk loading.
-3.  **RAM**: 4GB to 8GB is the sweet spot for most community servers. Anything more than 12GB for a single instance often requires advanced :term:`Garbage Collector (GC)` tuning.
+3.  **RAM**: 8GB to 32GB is the sweet spot for most community servers. Anything more than 32GB for a single instance often requires advanced :term:`Garbage Collector (GC)` tuning.
 
 The Anatomy of a Great Host
 ---------------------------
@@ -64,6 +64,7 @@ A :doc:`summer_hosts` is a fly-by-night operation started by someone with no bus
 .. warning::
 
    **Impossibly Low Pricing** is the #1 red flag. If you see a host offering a Ryzen 7950X for $1/GB of RAM, they are either lying about the hardware or overselling the node so heavily that your server will be unplayable.
+   **Unlimited Resources** is physically impossible. See below for why.
 
 Physically Impossible Pricing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -72,6 +73,10 @@ Consider the math: A high-end dedicated server costs roughly $100-$200 per month
 *   If a host sells RAM at $1/GB, they only make $128 if the node is 100% full.
 *   After payment processing fees, taxes, and staff costs, they are **losing money**.
 *   **The Result**: They will eventually exit-scam (shut down without notice) or drastically reduce performance to survive.
+
+More specifically, there are a total of :math:`10^{80}` particles in the observable universe. Note that :math:`10^{80}≠∞`.
+Computing resources rely on these particles to even exsist. Because there is a finite number of particles,
+it is, therefore, ***physically impossible*** for "infinite computing resources" to even exsist
 
 How to Spot a Scammer
 ~~~~~~~~~~~~~~~~~~~~~

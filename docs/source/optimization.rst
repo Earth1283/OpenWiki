@@ -1,11 +1,15 @@
 Server Optimization
 ===================
 
-Optimization is a never-ending journey for any Minecraft server administrator. While modern forks like Paper and Purpur provide a great baseline, you must tune your configuration to match your hardware and player count.
+Optimization is a never-ending journey for any Minecraft server administrator.
+While modern forks like Paper and Purpur provide a great baseline, you must
+tune your configuration to match your hardware and player count.
 
 The Gold Standard Guide
 -----------------------
-Before tweaking individual values, it is highly recommended to read the `Minecraft Optimization Guide by YouHaveTrouble <https://github.com/YouHaveTrouble/minecraft-optimization>`_. This community-maintained guide is the most comprehensive resource for performance tuning.
+Before tweaking individual values, it is highly recommended to read the
+`Minecraft Optimization Guide by YouHaveTrouble <https://github.com/YouHaveTrouble/minecraft-optimization>`_.
+This community-maintained guide is the most comprehensive resource for performance tuning.
 
 Key Performance Concepts
 ------------------------
@@ -56,7 +60,8 @@ The most common cause of lag spikes on new servers is chunk generation. When a p
 
 Hardware Considerations
 -----------------------
-Minecraft is primarily a **single-threaded** application. This means that having 64 cores won't help you as much as having 4 very fast cores.
+Minecraft is primarily a **single-threaded** application (except Folia).
+This means that having 64 cores won't help you as much as having 4 very fast cores.
 
 .. grid:: 1 2 3 3
    :gutter: 2
@@ -126,6 +131,7 @@ While pre-generation is the most important step, fine-tuning your configuration 
 
 .. seealso::
 
+   * :doc:`troubleshooting`: Learn how to diagnose and fix performance issues using Spark.
    * :doc:`plugin_alternatives`: Find free alternatives to expensive premium plugins.
    * `PaperMC Optimization Guide <https://docs.papermc.io/paper/optimization>`_: The official documentation for Paper performance.
 

@@ -39,7 +39,15 @@ Setting up a professional-grade server can be daunting. Follow this step-by-step
       ^^^
       **Key Task**: Download the latest build of Paper or Purpur.
 
-   .. grid-item-card:: 4. Core Configuration
+   .. grid-item-card:: 4. Plugin Selection & Evaluation
+      :link: plugin_guide
+      :link-type: doc
+
+      Don't bloat your server. Learn where to find high-quality plugins and how to avoid "premium" scams.
+      ^^^
+      **Key Task**: Choose your core plugins and verify their source.
+
+   .. grid-item-card:: 5. Core Configuration
       :link: first_server
       :link-type: doc
 
@@ -47,7 +55,7 @@ Setting up a professional-grade server can be daunting. Follow this step-by-step
       ^^^
       **Key Task**: Set simulation distance to 5 and enable online-mode.
 
-   .. grid-item-card:: 5. Launching & JVM Tuning
+   .. grid-item-card:: 6. Launching & JVM Tuning
       :link: first_server
       :link-type: doc
 
@@ -55,7 +63,7 @@ Setting up a professional-grade server can be daunting. Follow this step-by-step
       ^^^
       **Key Task**: Create a startup script with optimized memory flags.
 
-   .. grid-item-card:: 6. Optimization
+   .. grid-item-card:: 7. Optimization
       :link: optimization
       :link-type: doc
 
@@ -63,7 +71,7 @@ Setting up a professional-grade server can be daunting. Follow this step-by-step
       ^^^
       **Key Task**: Use the Chunky plugin to pre-generate a 5,000-block radius.
 
-   .. grid-item-card:: 7. Security & Stability
+   .. grid-item-card:: 8. Security & Stability
       :link: security
       :link-type: doc
 
@@ -71,16 +79,16 @@ Setting up a professional-grade server can be daunting. Follow this step-by-step
       ^^^
       **Key Task**: Install LuckPerms and configure a daily backup schedule.
 
-   .. grid-item-card:: 8. Networking & Access
-      :link: first_server
+   .. grid-item-card:: 9. Networking & Access
+      :link: networking
       :link-type: doc
 
       Open your doors to the world. Learn about port forwarding, VPS hosting, and DDoS protection.
       ^^^
       **Key Task**: Configure your firewall and point a domain to your IP.
 
-   .. grid-item-card:: 9. Maintenance
-      :link: first_server
+   .. grid-item-card:: 10. Maintenance & Debugging
+      :link: troubleshooting
       :link-type: doc
 
       A server is a living thing. Learn how to update safely and monitor performance with Spark.
@@ -92,6 +100,12 @@ Avoid Common Pitfalls
 
 Don't let your project fail before it even starts. Learn from the mistakes of others.
 
+*   **The Plugin Guide**: Learn how to evaluate plugins and avoid overpaying for features.
+    | :doc:`plugin_guide`
+*   **Networking & Proxies**: Learn how to scale your server and support Bedrock players.
+    | :doc:`networking`
+*   **Troubleshooting**: Master the art of reading logs and fixing crashes.
+    | :doc:`troubleshooting`
 *   **The FOSS Alternative Table**: Don't overspend. Many "premium" plugins have high-quality free and open-source alternatives.
     | :doc:`plugin_alternatives`
 *   **Summer Hosts**: Learn how to spot fly-by-night hosting companies that will disappear with your money.
@@ -117,7 +131,10 @@ Contents
 
    hosting
    first_server
+   plugin_guide
    optimization
+   networking
+   troubleshooting
    plugin_alternatives
    security
    summer_hosts

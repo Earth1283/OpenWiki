@@ -61,19 +61,86 @@ Hardware fails, plugins bug out, and humans make mistakes. Without a backup, a s
 *   **Off-site Storage**: Never keep your backups only on the same disk as your server. Use S3, Google Drive, or a separate physical drive.
 
 Network Security
+
 ----------------
 
+
+
 Firewalls
+
 ~~~~~~~~~
+
 If you are hosting from home or a VPS, ensure your firewall (e.g., `ufw` on Linux) only allows traffic on necessary ports (usually `25565`).
+
+
 
 .. caution::
 
+
+
    Opening ports on your home router can be dangerous if not done correctly. Always use a firewall on the host machine as well.
+
+
+
+VPS Hardening
+
+~~~~~~~~~~~~~
+
+
+
+If you are using a VPS, the default configuration is often insecure. Take these steps immediately:
+
+
+
+1.  **Disable Root Login**: Create a new user with `sudo` privileges and disable the ability to log in as `root` directly via SSH.
+
+2.  **SSH Keys**: Disable password-based login and use **SSH Keys** instead. This makes "brute-force" attacks impossible.
+
+3.  **Change the SSH Port**: Moving SSH from port 22 to something else (e.g., 2222) will stop 99% of automated "bot" scans.
+
+4.  **Fail2Ban**: Install `fail2ban` to automatically ban IPs that fail to log in multiple times.
+
+
+
+Plugin Safety & Backdoors
+
+-------------------------
+
+
+
+Not every plugin developer has good intentions. A "Backdoor" is a hidden piece of code that allows the developer (or an attacker) to gain control of your server.
+
+
+
+How to Spot a Suspicious Plugin:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+*   **Requesting Weird Permissions**: A "Chat" plugin should never ask for permission to access your filesystem or run shell commands.
+
+*   **Obfuscated Code**: If you open a plugin JAR and the code looks like gibberish (`a.b.c()`), be extremely cautious. This is often used to hide malicious logic.
+
+*   **"Force-OP" Commands**: Some malicious plugins include hidden commands (e.g., `/help <secret_key>`) that give the user full Administrator rights.
+
+*   **Automatic Updates from Unknown Sources**: Only use plugins that update from trusted platforms like Modrinth or Hangar.
+
+
+
+.. tip::
+
+
+
+   Use the **"Administrator's Testing Workflow"** found in the :doc:`plugin_guide` to verify every plugin in a sandbox before moving it to your main server.
+
+
 
 Anti-Bot Protection
 
 ~~~~~~~~~~~~~~~~~~~
+
+
 
 Bot attacks can flood your server with hundreds of fake players, crashing the :term:`JVM`.
 

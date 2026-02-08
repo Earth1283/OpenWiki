@@ -26,3 +26,18 @@ Glossary
 
    Purpur
       A drop-in replacement for Paper servers designed for ease-of-use and configuration flexibility.
+
+   Proxy
+      A server that acts as an intermediary for requests from clients seeking resources from other servers. In Minecraft, proxies like Velocity link multiple game servers together.
+
+   Backdoor
+      A hidden method of bypassing normal authentication or security controls in a plugin or system, often used for malicious purposes.
+
+   VPS
+      Virtual Private Server. A virtual machine sold as a service by an Internet hosting provider. It runs its own copy of an operating system.
+
+   SSH Key
+      An access credential for the Secure Shell (SSH) network protocol. It is more secure than a password because it is nearly impossible to "brute-force."
+
+   DDoS
+      Distributed Denial of Service. A cyber-attack in which the perpetrator seeks to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet.

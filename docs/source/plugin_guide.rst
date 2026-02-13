@@ -104,7 +104,7 @@ You should only open your wallet for plugins that provide **groundbreaking funct
       * - **Groundbreaking Effects**
         - Plugins like **`RealisticSeasons <https://www.spigotmc.org/resources/realisticseasons-1-16-3-1-21-11-seasons-in-your-minecraft-world-with-temperature-and-calendar.93275/>`_** or advanced shader-like world effects that fundamentally change the game's visuals and mechanics.
       * - **Custom Resource Managers**
-        - Tools like **Oraxen** or **ItemsAdder**. These plugins allow you to add completely new 3D models, items, and UI elements to vanilla Minecraft without requiring players to install mods. The complexity of managing these resource packs is immense, making the price tag justified.
+        - Tools like **Oraxen** or **ItemsAdder**. These plugins allow you to add completely new 3D models, items, and UI elements to vanilla Minecraft without requiring players to install mods. The complexity of managing these resource packs and their logic is immense, making the price tag justified.
       * - **Advanced Anticheats**
         - While GrimAC (FOSS) is excellent, premium anticheats like **`Vulcan <https://www.spigotmc.org/resources/vulcan-anti-cheat-advanced-cheat-detection-1-8-1-21-11-folia-supported.83626/>`_** that provide dedicated support teams and frequent updates to counter new "ghost" cheats.
       * - **Complex Game Engines**
@@ -149,7 +149,7 @@ You should only open your wallet for plugins that provide **groundbreaking funct
 Running a cracked/offline mode server?
 -------------------------
 
-If you are running your server in ``offline-mode`` (unrecommended for security reasons), you **must** use an
+If you are running your server in ``offline-mode`` (not recommended for security reasons), you **must** use an
 authentication plugin to prevent players from impersonating one another or staff member.
 
 .. grid:: 1 1 2 2
@@ -163,7 +163,7 @@ authentication plugin to prevent players from impersonating one another or staff
    .. grid-item-card:: ❌ Avoid: OpeNLogin
       :class-header: sd-bg-danger sd-text-white
 
-      Be extremely cautious of **OpeNLogin** by NickUC. While it appears to be a free alternative,
+      Be extremely cautious of **OpeNLogin** by NickUC. While it appears to be yet another alternative,
       it is essentially adware for his premium ``nLogin`` plugin. Even though there is a toggle in the
       ``config.yml`` to disable "advertising," it is known to continue pushing adverts regardless of the setting.
 

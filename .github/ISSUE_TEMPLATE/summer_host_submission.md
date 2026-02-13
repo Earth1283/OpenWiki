@@ -11,10 +11,10 @@ assignees: []
 *Provide the full name of the hosting company.*
 
 ### 🔗 Primary Website
-*The current (or last known) URL of the host.*
+*The current (or last known) URL of the host. An archived URL is also welcome*
 
 ### 🚨 Reason for Submission
-*Check all that apply:*
+*Check all that apply, or create a new checkbox where fit:*
 - [ ] Legal Placeholders (e.g., [Your State/Country Here])
 - [ ] Technical Incompetence (e.g., copied panel/template without credit)
 - [ ] Hardware Misrepresentation (e.g., promising high-end CPUs but delivering old Xeons)
@@ -32,7 +32,7 @@ assignees: []
 > URL Here
 
 **Hardware/Audit Evidence:**
-> Provide screenshots of `/audit all` or other logs if available.
+> Provide screenshots of `/audit all` or a spark report if possible.
 
 ### 📝 Detailed Description
 *Explain in detail why this host belongs in the Hall of Shame. Be as objective as possible.*
@@ -40,4 +40,4 @@ assignees: []
 ### ✅ Final Verification
 - [ ] I have provided permanent evidence (Wayback Machine).
 - [ ] I am not submitting this for personal revenge, but for the safety of the community.
-- [ ] I understand that submissions without evidence will be closed immediately.
+- [ ] I understand that submissions without evidence will be closed immediately or ignored.

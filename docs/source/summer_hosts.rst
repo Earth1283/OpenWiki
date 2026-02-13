@@ -85,7 +85,7 @@ How many of these boxes does your potential host check? Use this grid to evaluat
       :class-header: sd-bg-warning
       :class-card: bingo-tile
 
-      Offering "Unlimited" RAM or $1/GB for high-end Ryzen CPUs.
+      Offering "Unlimited" RAM, CPU, or Storage or $1/GB for high-end Ryzen CPUs.
 
    .. grid-item-card:: 🎨 Free Web Template
       :class-header: sd-bg-warning

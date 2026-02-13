@@ -78,7 +78,7 @@ This means that having 64 cores won't help you as much as having 4 very fast cor
 
       Quality over quantity.
       ^^^
-      Allocate enough for your :term:`Heap` and leave 2-4GB for the OS. DDR4/DDR5 recommended.
+      Allocate enough for your :term:`Heap` and leave 2-4GB for the OS and non-heap objects. DDR4/DDR5 recommended.
 
    .. grid-item-card:: 💽 Storage
       :class-header: sd-bg-info sd-text-white
@@ -109,7 +109,7 @@ While pre-generation is the most important step, fine-tuning your configuration 
       *   ``merge-radius``:
           *   ``item``: **4.0**
           *   ``exp``: **6.0**
-          (Groups items on the ground to reduce entity count).
+          (Groups items on the ground to reduce entity count, removing the need for plugins like "Clumps")
       *   ``entity-activation-range``:
           *   ``animals``: **16**
           *   ``monsters``: **24**
@@ -127,12 +127,14 @@ While pre-generation is the most important step, fine-tuning your configuration 
 
 .. tip::
 
-   **The "ClearLagg" Trap**: Avoid plugins that "clear items" or "kill all mobs" to save lag. These often cause TPS spikes themselves when they run. Proper configuration in the files above is always more efficient.
+   **The "ClearLagg" Trap**: Avoid plugins that "clear items" or "kill all mobs" to save lag.
+   These often cause TPS spikes themselves when they run. Proper configuration in the files
+   above is almost always more efficient.
 
 .. seealso::
 
    * :doc:`troubleshooting`: Learn how to diagnose and fix performance issues using Spark.
    * :doc:`plugin_alternatives`: Find free alternatives to expensive premium plugins.
-   * `PaperMC Optimization Guide <https://docs.papermc.io/paper/optimization>`_: The official documentation for Paper performance.
+   * `PaperMC Optimization Guide <https://docs.papermc.io/paper/next-steps/#optimization>`_: The official documentation for performance written by the PaperMC team.
 
 

@@ -19,14 +19,16 @@ To optimize a server, you must first understand the **Tick Loop**. A Minecraft s
 .. mermaid::
 
    graph TD
-       Start((Tick Start)) --> Input[Process Network Packets]
-       Input --> AI[Entity AI & Logic]
-       AI --> Physics[World Physics & Blocks]
-       Physics --> Save[Autosave / Disk IO]
-       Save --> Output[Send Packets to Players]
-       Output --> End((Tick End))
+       Start((Tick Start)) -- Packets --> Input[Process Network Packets]
+       Input -- AI Logic --> AI[Entity AI & Logic]
+       AI -- Calculation --> Physics[World Physics & Blocks]
+       Physics -- I/O Sync --> Save[Autosave / Disk IO]
+       Save -- Response --> Output[Send Packets to Players]
+       Output -- Cycle --> End((Tick End))
        
-       style Save fill:#fff4e5,stroke:#663c00,stroke-width:2px,color:#663c00
+       style Save fill:#fff7ed,stroke:#9a3412,stroke-width:2px,color:#9a3412
+       style Start fill:#f0fdf4,stroke:#166534,color:#166534
+       style End fill:#fef2f2,stroke:#991b1b,color:#991b1b
 
 Entity Activation Range
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -184,17 +186,20 @@ You will often see administrators recommending a specific set of Java flags. The
 .. mermaid::
 
    graph LR
-       subgraph Physical RAM
+       subgraph Physical_RAM [Total Physical RAM]
            direction TB
-           OS[OS & System: 2-4GB]
-           subgraph JVM Process
-               Heap[Java Heap: -Xmx]
-               NonHeap[Non-Heap / MetaSpace]
+           OS["Operating System<br/>(2-4GB Reserved)"]
+           
+           subgraph JVM_Process [Java Virtual Machine]
+               Heap["Java Heap Space<br/>(-Xmx / -Xms)"]
+               NonHeap["Non-Heap Memory<br/>(Metaspace / Code Cache)"]
            end
        end
        
-       style Heap fill:#e1f5fe,stroke:#01579b,color:#01579b
-       style OS fill:#f5f5f5,stroke:#333,color:#333
+       style Heap fill:#eff6ff,stroke:#1e40af,color:#1e40af
+       style OS fill:#f9fafb,stroke:#374151,color:#374151
+       style JVM_Process fill:#f0fdf4,stroke:#166534,stroke-dasharray: 5 5
+       style Physical_RAM fill:#ffffff,stroke:#1f2937,stroke-width:2px
 
 *   **-Xmx and -Xms**: Always set these to the same value. This prevents the JVM from constantly resizing its memory pool, which causes lag.
 *   **G1GC**: This collector splits the memory into regions, making it much more efficient at cleaning up "trash" without freezing the game.

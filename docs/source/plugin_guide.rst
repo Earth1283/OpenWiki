@@ -73,22 +73,23 @@ Minecraft's main logic runs on a single thread (the "Main Thread"). If a plugin 
 .. mermaid::
 
    graph TD
-       subgraph Synchronous (BAD)
-           T1[Main Thread] --> P1[Game Logic]
-           P1 --> DB[Slow DB Query]
-           DB --> P2[Next Game Tick]
-           Note over DB: Server Hangs Here
+       subgraph Sync_Model [Synchronous Model - BAD]
+           T1[Main Thread] -- "Process" --> P1[Game Logic]
+           P1 -- "Wait" --> DB[Slow Database Query]
+           DB -- "Release" --> P2[Next Game Tick]
        end
        
-       subgraph Asynchronous (GOOD)
-           T2[Main Thread] --> P3[Game Logic]
-           P3 --> P4[Next Game Tick]
-           T3[Async Thread] -.-> DB2[Slow DB Query]
-           P3 -- Offload --> T3
+       subgraph Async_Model [Asynchronous Model - GOOD]
+           T2[Main Thread] -- "Process" --> P3[Game Logic]
+           P3 -- "Continue" --> P4[Next Game Tick]
+           T3[Worker Thread] -- "Fetch" --> DB2[Slow Database Query]
+           P3 -- "Offload Task" --> T3
        end
        
-       style DB fill:#fff4e5,stroke:#663c00,stroke-width:2px,color:#663c00
-       style P4 fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
+       style DB fill:#fff7ed,stroke:#9a3412,stroke-width:2px,color:#9a3412
+       style P4 fill:#f0fdf4,stroke:#166534,stroke-width:2px,color:#166534
+       style Sync_Model fill:#fef2f2,stroke:#991b1b,stroke-dasharray: 5 5
+       style Async_Model fill:#f0fdf4,stroke:#166534,stroke-dasharray: 5 5
 
 .. tip::
 

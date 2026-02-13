@@ -10,24 +10,26 @@ Understanding the difference in control is key to choosing the right environment
 
 .. mermaid::
 
-   graph TD
-       User((User)) --> Managed[Managed Hosting]
-       User --> VPS[VPS Hosting]
+   graph LR
+       User((User)) -- Web Access --> Managed["Managed Hosting<br/>(Shared Node)"]
+       User -- SSH Access --> VPS["VPS Hosting<br/>(Dedicated OS)"]
        
-       subgraph Managed Architecture
-           Managed --> Panel[Web Panel]
-           Panel --> Game[Minecraft Instance]
-           style Managed fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#880e4f
+       subgraph Managed_Env [Managed Environment]
+           Managed -- Management --> Panel[Web Control Panel]
+           Panel -- Process --> Game[Minecraft Instance]
        end
        
-       subgraph VPS Architecture
-           VPS --> SSH[SSH / Root Access]
-           SSH --> OS[Full Linux OS]
-           OS --> Docker[Docker / Panels]
-           Docker --> Instance1[Instance 1]
-           Docker --> Instance2[Instance 2]
-           style VPS fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
+       subgraph VPS_Env [VPS Environment]
+           VPS -- Root Access --> OS[Full Linux OS]
+           OS -- Containerization --> Docker[Docker / Panels]
+           Docker -- Isolation --> Instance1[Instance 1]
+           Docker -- Isolation --> Instance2[Instance 2]
        end
+       
+       style Managed_Env fill:#fdf2f2,stroke:#9b1c1c,stroke-dasharray: 5 5
+       style VPS_Env fill:#f0f9ff,stroke:#075985,stroke-dasharray: 5 5
+       style Panel fill:#fdf2f2,stroke:#9b1c1c,color:#9b1c1c
+       style OS fill:#f0f9ff,stroke:#075985,color:#075985
 
 MCSManager: The Modern Panel
 ---------------------------
@@ -37,12 +39,20 @@ MCSManager: The Modern Panel
 .. mermaid::
 
    graph LR
-       User((User)) --> Panel[MCSManager Panel]
-       Panel -- Network --> Daemon1[Daemon A]
-       Panel -- Network --> Daemon2[Daemon B]
-       Daemon1 --> S1[Server 1]
-       Daemon1 --> S2[Server 2]
-       Daemon2 --> S3[Server 3]
+       User((User)) -- HTTPS --> Panel["MCSManager Panel<br/>(Web Interface)"]
+       
+       subgraph Remote_Nodes [Distributed Daemons]
+           Panel -- "Secure Network" --> Daemon1[Daemon A]
+           Panel -- "Secure Network" --> Daemon2[Daemon B]
+           Daemon1 -- Process --> S1[Server 1]
+           Daemon1 -- Process --> S2[Server 2]
+           Daemon2 -- Process --> S3[Server 3]
+       end
+       
+       style Remote_Nodes fill:#f9fafb,stroke:#374151,stroke-dasharray: 5 5
+       style Panel fill:#eff6ff,stroke:#1e40af,color:#1e40af
+       style Daemon1 fill:#ecfdf5,stroke:#065f46,color:#065f46
+       style Daemon2 fill:#ecfdf5,stroke:#065f46,color:#065f46
 
 Setup Guide
 ~~~~~~~~~~~

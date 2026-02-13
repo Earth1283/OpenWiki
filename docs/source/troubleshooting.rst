@@ -104,17 +104,18 @@ If your server is crashing but you can't figure out which plugin is responsible,
 .. mermaid::
 
    graph TD
-       Start[Backup Server] --> Split[Split Plugins in Half]
-       Split --> Run[Start Server with Half A]
-       Run --> Crash{Still Crashing?}
-       Crash -- Yes --> HalfA[Problem is in Half A]
-       Crash -- No --> HalfB[Problem is in Half B]
-       HalfA --> Done{Only 1 Plugin Left?}
-       HalfB --> Done
-       Done -- No --> Split
-       Done -- Yes --> Culprit[Found the Culprit!]
+       Start[Backup Server] -- "Remove 50%" --> Split[Plugin Pool Split]
+       Split -- "Test Run" --> Run[Start Server]
+       Run -- "Verify Logs" --> Crash{Is it Crashing?}
+       Crash -- "Yes" --> HalfA[Problem in Active Set]
+       Crash -- "No" --> HalfB[Problem in Removed Set]
+       HalfA -- "Iterate" --> Done{Isolate Single?}
+       HalfB -- "Iterate" --> Done
+       Done -- "No" --> Split
+       Done -- "Yes" --> Culprit[Plugin Identified]
        
-       style Culprit fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
+       style Culprit fill:#f0fdf4,stroke:#166534,stroke-width:2px,color:#166534
+       style Start fill:#eff6ff,stroke:#1e40af,color:#1e40af
 
 1.  **Backup your server.**
 2.  Remove **half** of your plugins.

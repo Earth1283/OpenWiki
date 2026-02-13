@@ -141,13 +141,13 @@ Common Red Flags
 .. mermaid::
 
    graph LR
-       A[June: Launch] --> B[July: Peak Sales]
-       B --> C[August: Support Lag]
-       C --> D{September}
-       D -- School Starts --> E[Exit Scam / Shutdown]
-       D -- "Owner Bored" --> E
+       A[June: Launch] -- "Peak Sales" --> B[July: Operation]
+       B -- "Support Backlog" --> C[August: Deterioration]
+       C -- "School/Boredom" --> D{September}
+       D -- "Service Cut" --> E[Exit Scam / Shutdown]
        
-       style E fill:#fff4e5,stroke:#663c00,stroke-width:2px,color:#663c00
+       style E fill:#fff7ed,stroke:#9a3412,stroke-width:2px,color:#9a3412
+       style A fill:#f0f9ff,stroke:#075985,color:#075985
 
 .. tab-set::
 

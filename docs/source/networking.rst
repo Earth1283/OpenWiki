@@ -11,12 +11,16 @@ A :term:`proxy` is a specialized server that sits between the player and your ac
 .. mermaid::
 
    graph LR
-       Player((Player)) --> Proxy[Velocity Proxy]
-       Proxy --> Lobby[Lobby Server]
-       Proxy --> Survival[Survival Server]
-       Proxy --> Creative[Creative Server]
+       Player((Player)) -- Connection --> Proxy["Velocity Proxy<br/>(Port: 25565)"]
        
-       style Proxy fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
+       subgraph Backend_Network [Isolated Backend]
+           Proxy -- "Internal Forward" --> Lobby[Lobby Server]
+           Proxy -- "Internal Forward" --> Survival[Survival Server]
+           Proxy -- "Internal Forward" --> Creative[Creative Server]
+       end
+       
+       style Proxy fill:#eff6ff,stroke:#1e40af,stroke-width:2px,color:#1e40af
+       style Backend_Network fill:#f9fafb,stroke:#374151,stroke-dasharray: 5 5
 
 .. tab-set::
 

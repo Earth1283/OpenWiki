@@ -75,25 +75,29 @@ Protecting your server requires a multi-layered approach to ensure that even if 
 
 .. mermaid::
 
-   graph TD
-       Player((Player)) --> Edge[Edge: TCPShield / Cloudflare]
-       Edge --> HA[Entry: HAProxy]
-       HA --> FW[Firewall: UFW]
-       FW --> Proxy[Proxy: Velocity]
-       Proxy --> Backend[Backend: Paper/Purpur]
+   graph LR
+       Player((Player)) -- "Public Internet" --> Edge["☁️ Edge Protection<br/>(TCPShield / Cloudflare)"]
        
-       subgraph "Your VPS / Host"
-           HA
-           FW
-           Proxy
-           Backend
+       subgraph VPS ["🛡️ Your VPS / Host"]
+           direction TB
+           HA["🌐 Entry Point: HAProxy<br/>(Port: 25565)"]
+           FW["🔥 Firewall: UFW<br/>(Port Lockdown)"]
+           Proxy["🌌 Proxy: Velocity<br/>(Internal Port)"]
+           Backend["📄 Backend: Paper/Purpur<br/>(Isolated)"]
+           
+           HA -- "Filtered TCP" --> FW
+           FW -- "Internal Forward" --> Proxy
+           Proxy -- "Secret Forwarding" --> Backend
        end
+       
+       Edge -- "Clean Traffic" --> HA
        
        style Edge fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
        style HA fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#e65100
        style FW fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#880e4f
        style Proxy fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
        style Backend fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
+       style VPS fill:#fafafa,stroke:#333,stroke-dasharray: 5 5
 
 HAProxy: The Technical Shield
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

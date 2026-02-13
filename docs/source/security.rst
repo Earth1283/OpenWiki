@@ -9,6 +9,14 @@ Never give a player "OP" unless you trust them with your life. Instead, use a pe
 
 *   `LuckPerms <https://luckperms.net/>`_: The absolute industry standard and one of the most feature-rich permissions plugins available. It allows you to create groups (e.g., Member, Moderator, Admin) and give them specific nodes (e.g., `minecraft.command.gamemode`) through an intuitive web editor.
 
+.. dropdown:: 🛠️ The LuckPerms Workflow
+   :open:
+
+   1.  **Generate a Link**: Run ``/lp editor`` in-game or from the console.
+   2.  **Edit Permissions**: Click the link to open the web editor. Create groups, add permissions nodes, and set prefixes/suffixes.
+   3.  **Apply Changes**: Once done, click "Save" in the top right. Copy the command provided (e.g., ``/lp applyedits <key>``) and paste it back into your server console.
+   4.  **Verify**: Check a player's permissions with ``/lp user <name> info``.
+
 Avoid using old plugins like Essentials GroupManager or PermissionsEx, as they are no longer maintained and can have security flaws.
 
 Grief Prevention
@@ -83,22 +91,27 @@ If you are hosting from home or a VPS, ensure your firewall (e.g., `ufw` on Linu
 
 
 VPS Hardening
-
 ~~~~~~~~~~~~~
-
-
 
 If you are using a VPS, the default configuration is often insecure. Take these steps immediately:
 
-
-
-1.  **Disable Root Login**: Create a new user with `sudo` privileges and disable the ability to log in as `root` directly via SSH.
-
-2.  **SSH Keys**: Disable password-based login and use **SSH Keys** instead. This makes "brute-force" attacks impossible.
-
+1.  **Disable Root Login**: Edit ``/etc/ssh/sshd_config`` and set ``PermitRootLogin no``.
+2.  **SSH Keys**: Disable password-based login by setting ``PasswordAuthentication no`` in the same file.
 3.  **Change the SSH Port**: Moving SSH from port 22 to something else (e.g., 2222) will stop 99% of automated "bot" scans.
+4.  **Fail2Ban**: Install it to automatically ban malicious IPs.
 
-4.  **Fail2Ban**: Install `fail2ban` to automatically ban IPs that fail to log in multiple times.
+.. code-block:: bash
+
+   # 1. Update and install Fail2Ban
+   sudo apt update && sudo apt install fail2ban -y
+
+   # 2. Configure Firewall (UFW)
+   sudo ufw allow 2222/tcp  # Your new SSH port
+   sudo ufw allow 25565/tcp # Minecraft
+   sudo ufw enable
+
+   # 3. Restart SSH to apply changes
+   sudo systemctl restart ssh
 
 
 

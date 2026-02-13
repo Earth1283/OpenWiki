@@ -125,11 +125,51 @@ While pre-generation is the most important step, fine-tuning your configuration 
           *   ``animal-spawns``: **400** (Spawns animals every 20 seconds instead of every tick).
           *   ``monster-spawns``: **10** (Spawns monsters every 0.5 seconds).
 
+   .. tab-item:: 🚀 purpur.yml
+
+      Located in `purpur.yml`. These are extreme optimizations for power users.
+
+      *   ``villager.lobotomize.enabled``: Set to **true**. Stops villagers from pathfinding unless they are hit or interacted with. Massive CPU saver in trading halls.
+      *   ``entities.alternative-item-despawn-rate``: Set to **true**. Allows items to despawn faster if there are too many on the ground.
+      *   ``settings.use-alternate-keep-alive``: Set to **true**. Prevents players with bad connections from being timed out as easily.
+
 .. tip::
 
    **The "ClearLagg" Trap**: Avoid plugins that "clear items" or "kill all mobs" to save lag.
    These often cause TPS spikes themselves when they run. Proper configuration in the files
    above is almost always more efficient.
+
+The Spark Profiler: Identifying the Bottleneck
+----------------------------------------------
+
+When your server is lagging (TPS < 20), you need to know *why*. `Spark <https://spark.lucko.me/>`_ is the definitive tool for this.
+
+How to Read a Spark Report
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After running ``/spark profiler start`` and generating a link, open the **Viewer**.
+
+1.  **Self Time vs. Total Time**: 
+    *   **Total Time**: How much time a function *and everything it called* took.
+    *   **Self Time**: How much time *only* that specific function took. Look for high "Self Time" to find the actual source of lag.
+2.  **The Tick Loop**: This is the heart of the server. 
+    *   If ``Server Hang Watchdog`` is high, the server is freezing.
+    *   If ``world - doTick`` is high, the issue is likely entities (mobs) or block updates (redstone).
+    *   If a plugin name (e.g., `LuckPerms` or `Essentials`) appears with a high percentage, that plugin is performing poorly.
+
+.. dropdown:: 🕵️ Advanced Spark Analysis
+
+   *   **Garbage Collection (GC)**: If you see frequent spikes in "GC Time," your Java flags are likely poorly configured, or you have too little/too much RAM allocated.
+   *   **Scheduled Tasks**: Look for plugins running expensive tasks on the "Main Thread." High-quality plugins will run these "Asynchronously" (off-thread).
+
+JVM Tuning: Why Aikar's Flags?
+------------------------------
+
+You will often see administrators recommending a specific set of Java flags. These aren't magic; they are designed to optimize the **G1 Garbage Collector**.
+
+*   **-Xmx and -Xms**: Always set these to the same value. This prevents the JVM from constantly resizing its memory pool, which causes lag.
+*   **G1GC**: This collector splits the memory into regions, making it much more efficient at cleaning up "trash" without freezing the game.
+*   **ZGC (Java 21+)**: The future of Minecraft hosting. It offers sub-millisecond pause times, but requires more CPU power. Only use if you have a modern CPU (Ryzen 7000+ / Intel 13th Gen+).
 
 .. seealso::
 

@@ -14,12 +14,20 @@ There are two primary ways to host a Minecraft server: **Virtual Private Servers
 
       A VPS gives you a slice of a physical server with your own Operating System (usually Linux).
 
-      *   **Control**: You have full root access. You can install any Java version, any database, and any monitoring tools you want. If your neighbor is mining crypto, your server remains lag-free
+      *   **Control**: You have full root access. You can install any Java version, any database, and any monitoring tools you want.
+      *   **Virtualization Matters**: Ensure your VPS uses **KVM** (Kernel-based Virtual Machine). Avoid **OpenVZ** or **LXC** as they share the host kernel and are much easier for providers to oversell, leading to "noisy neighbor" syndrome where another user's lag affects you.
       *   **No Limits**: There are no "player slot" limits. You are only limited by your hardware.
       *   **Learning**: You will learn valuable Linux administration skills.
-      *   **Transparency**: You know exactly what resources you are getting.
       *   **Verdict**: **Best for serious administrators** who want stability and growth.
-      *   *Feeling lazy?* Try MCSManager, an open source control panel that is easy to set up and has exceptional security compared to it's simplicity.
+
+   .. tab-item:: 🎮 Control Panels: MCSManager
+
+      If you want the power of a VPS with the ease of a web interface, we recommend **`MCSManager <https://mcsmanager.com/>`_**. It is a FOSS, lightweight, and incredibly powerful alternative to bloated panels like Pterodactyl.
+
+      *   **Native PTY/TTY Emulation**: Unlike Pterodactyl, which uses standard STDIN/OUT piping, MCSManager supports full PTY/TTY emulation. This means the console behaves exactly like a real terminal, supporting interactive CLI tools and proper color codes without "ghosting" or input lag.
+      *   **Docker Out-of-the-Box**: MCSManager has native support for Docker. You can deploy servers in isolated containers with a single click, ensuring that a crash in one instance never affects another.
+      *   **Low Overhead**: It is written in Node.js and is significantly lighter on system resources than PHP-based panels.
+      *   **Ease of Setup**: You can get it running in minutes on almost any Linux distribution with a simple install script.
 
    .. tab-item:: 🧊 Managed Hosting
 
@@ -55,6 +63,49 @@ A "good" host is more than just a fast CPU. Look for these pillars of quality wh
 *   **Technical Support**: The staff should actually understand Minecraft. If you ask about "Aikar's Flags" or "Spark Profiling" and they don't know what you mean, they aren't equipped to help you.
 *   **Off-site Backups**: A great host offers (or includes) backups that are stored in a completely different data center. If their building burns down, your data should still be safe.
 *   **A Solid Track Record**: Look for providers that have been in business for at least 2+ years. Most "Summer Hosts" fail within their first 6 months.
+
+VPS Deep Dive: Technical Excellence
+-----------------------------------
+
+When buying a VPS, the marketing page only tells half the story. To ensure a lag-free experience, you need to look at the underlying technology.
+
+.. dropdown:: 🛠️ Understanding Resource Allocation
+
+   *   **CPU & Steal Time**: On a VPS, you share a physical CPU with others. Run the command ``top`` and look for ``%st`` (Steal Time). If this number is consistently above 1-2%, your provider is overselling, and your server is being slowed down by other users.
+   *   **RAM & Memory Ballooning**: Some providers use "ballooning" to reclaim RAM from your VPS when you aren't using it. This can cause the JVM to crash or stutter. Always prefer providers that offer **dedicated ECC RAM**.
+   *   **Storage IOPS**: Minecraft servers perform thousands of small read/write operations (Input/Output Operations Per Second). A disk with high throughput (GB/s) but low IOPS will still cause "lag spikes" during autosaves. NVMe is mandatory because it offers orders of magnitude more IOPS than SATA SSDs.
+
+Networking & Peering
+~~~~~~~~~~~~~~~~~~~~
+
+The distance between the player and the server is only one factor. The **routing** (how data travels through the internet) is often more important.
+
+*   **Uplink Speed**: Ensure your VPS has at least a **1Gbps** uplink. 10Gbps is preferred for large networks.
+*   **DDoS Mitigation**: There is a difference between generic datacenter protection (which often just null-routes you if an attack is too big) and specialized gaming protection (like **Path.net** or **Cosmic Guard**) which filters malicious packets while keeping your server online.
+*   **Looking Glass**: Always use a host's "Looking Glass" tool before buying. Run a ``traceroute`` from your home PC to the test IP. If you see more than 10-12 "hops," your routing might be inefficient.
+
+MCSManager & Docker: The Modern Workflow
+----------------------------------------
+
+Using Docker to containerize your Minecraft server is the industry standard for security and portability. MCSManager makes this incredibly easy.
+
+.. grid:: 1 2 2 2
+   :gutter: 3
+
+   .. grid-item-card:: 🐳 Why Docker?
+      :class-header: sd-bg-info sd-text-white
+
+      *   **Isolation**: If a plugin has a security vulnerability, the attacker is trapped inside the container.
+      *   **Version Control**: Easily switch between Java 8, 17, and 21 for different server instances without messing up your system.
+      *   **Clean Uninstalls**: Removing a server removes every trace of its files and dependencies.
+
+   .. grid-item-card:: 🛠️ Setup Guide
+      :class-header: sd-bg-success sd-text-white
+
+      1.  **Install Docker**: Follow the `official Docker guide <https://docs.docker.com/engine/install/>`_ for your OS.
+      2.  **Enable Docker in MCSManager**: In the instance settings, select "Docker" as the runtime environment.
+      3.  **Choose an Image**: We recommend using the **openjdk:21-slim** or specialized Minecraft images like **itzg/minecraft-server**.
+      4.  **Mount Volumes**: Ensure your server files are mapped to a local folder so they persist if the container is restarted.
 
 The "Summer Host" Trap
 ----------------------

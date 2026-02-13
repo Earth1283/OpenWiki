@@ -46,6 +46,15 @@ Evaluating Plugin Quality: The Deep Dive
 
 Beyond a simple checklist, you need to understand *how* a plugin interacts with your server. A poorly written plugin can bring even the most powerful VPS to its knees.
 
+The Essential Middleware: Library Plugins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Many high-quality plugins require "Library" or "Bridge" plugins to function. These aren't bloat; they are standard APIs that allow different plugins to talk to each other.
+
+*   **`Vault <https://www.spigotmc.org/resources/vault.34313/>`_**: The universal economy and permissions bridge. Almost every shop or chat plugin requires this.
+*   **`PlaceholderAPI <https://api.extendedclip.com/placeholders/>`_**: Allows plugins to share information (e.g., showing a player's balance in a scoreboard).
+*   **`ProtocolLib <https://www.spigotmc.org/resources/protocollib.1997/>`_**: Required by plugins that need to modify low-level Minecraft packets (e.g., custom tab lists or advanced anti-cheats).
+
 .. dropdown:: 🚩 Red Flags: When to walk away
 
    *   **"Fixes Lag / Clears Entities"**: These are the biggest red flags in the industry. Minecraft's internal engine handles entity ticking; a plugin trying to "force" it usually causes more overhead than it saves.

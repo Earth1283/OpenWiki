@@ -20,6 +20,24 @@ Understanding Common Log Patterns
 *   **ERROR/SEVERE**: Something has gone wrong. A plugin might have failed to load, or a command might have crashed.
 *   **Stack Traces**: These long blocks of text (starting with `at ...`) look scary, but they are just a "map" of the error. Look at the very first line of the trace to find the name of the plugin causing the issue.
 
+Common Error Glossary
+~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table:: Common Console Errors
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Error Name
+     - Meaning & Solution
+   * - ``java.net.BindException: Address already in use``
+     - Another application is already using port 25565. Check if another server is running or change your port in ``server.properties``.
+   * - ``java.lang.ClassNotFoundException``
+     - A plugin is missing a dependency. Check the plugin's documentation for required "Lib" plugins.
+   * - ``java.lang.OutOfMemoryError``
+     - The JVM has run out of RAM. Increase your ``-Xmx`` value or find a memory leak using Spark.
+   * - ``UnsupportedClassVersionError``
+     - You are trying to run a plugin or server jar built for a newer version of Java (e.g., trying to run Java 21 code on Java 17). Update your Java version.
+
 Crash Reports
 -------------
 
@@ -28,6 +46,11 @@ If your server stops completely, it will generate a file in the `crash-reports/`
 **Key sections to look for:**
 *   **Description**: A brief summary of the crash (e.g., `Watching Server`, `Exception in server tick loop`).
 *   **Relevant Details**: Tells you which world, coordinates, or entities were involved.
+
+.. warning::
+
+   **JVM Fatal Crashes (hs_err_pid.log)**
+   If your server vanishes without a crash report or log entry, check your main folder for a file named ``hs_err_pid<number>.log``. This indicates that the **Java process itself** crashed. This is usually caused by faulty hardware (bad RAM), incompatible drivers, or running out of system memory (OOM Killer on Linux).
 
 Advanced Debugging with Spark
 -----------------------------

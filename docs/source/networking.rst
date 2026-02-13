@@ -16,7 +16,7 @@ A :term:`proxy` is a specialized server that sits between the player and your ac
       **The Modern Choice.** Developed by the PaperMC team, Velocity is built for high performance and modern security.
       
       *   **Pros**: Highly efficient, excellent API for developers, native support for modern Minecraft features.
-      *   **Cons**: Requires a slightly different setup for permissions and plugins than older proxies.
+      *   **Modern Forwarding**: Uses `MODERN` forwarding, which is more secure than BungeeCord's `LEGACY` mode. It uses a secret key to ensure that only your proxy can connect to your backend servers.
       *   **Verdict**: **Highly Recommended** for all new networks.
 
    .. tab-item:: 🦘 BungeeCord / Waterfall
@@ -39,6 +39,15 @@ By default, Minecraft: Java Edition and Minecraft: Bedrock Edition (Console, Mob
 .. tip::
 
    Running Geyser on a **Velocity** proxy is the most stable and efficient way to support Bedrock players on a network.
+
+Velocity Advanced Configuration
+-------------------------------
+
+To get the most out of Velocity, you need to tune its `velocity.toml` file.
+
+*   **player-info-forwarding-mode**: Set this to ``modern``. This is the most secure method. You will need to copy the `forwarding.secret` to all your backend Paper/Purpur servers.
+*   **compression-level**: The default is fine, but if you have a very high-performance CPU, you can increase this to save bandwidth at the cost of CPU cycles.
+*   **haproxy-protocol**: Set this to ``true`` **only** if you are using a load balancer or service like TCPShield that supports the PROXY protocol. This allows the proxy to see the player's real IP instead of the load balancer's IP.
 
 Protecting Your Backend IP
 --------------------------

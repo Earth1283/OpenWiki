@@ -32,7 +32,11 @@ Before downloading a single file, you must prepare your operating system. Minecr
          .. code-block:: bash
 
             sudo apt install openjdk-21-jre-headless -y
-      3. **Create a User**: **Never** run your server as root.
+      3. **Install Utilities**: 
+         .. code-block:: bash
+
+            sudo apt install tmux screen -y
+      4. **Create a User**: **Never** run your server as root.
          .. code-block:: bash
 
             sudo adduser minecraft
@@ -140,7 +144,46 @@ How you start your server is just as important as the software itself. Using raw
       * **Pros**: Ultra-low pause times (usually under 1ms).
       * **Cons**: Higher CPU overhead than G1GC.
 
-Phase 5: Networking & Access
+Phase 5: Background Processes & Automation (Linux)
+--------------------------------------------------
+If you close your SSH session, your server will stop. You need a way to keep it running in the background and ensure it starts automatically when your VPS reboots.
+
+.. tab-set::
+
+   .. tab-item:: 🪟 tmux (Background Running)
+      :sync: tmux
+
+      ``tmux`` allows you to create "sessions" that stay active even after you disconnect.
+      
+      1. **Start a session**: ``tmux new -s minecraft``
+      2. **Run your server**: ``./start.sh``
+      3. **Detach**: Press ``Ctrl+B`` then ``D``.
+      4. **Re-attach later**: ``tmux attach -t minecraft``
+
+   .. tab-item:: 🤖 systemd (Auto-Restart)
+      :sync: systemd
+
+      Create a service file to handle crashes and reboots. Save this as ``/etc/systemd/system/minecraft.service``:
+
+      .. code-block:: ini
+
+         [Unit]
+         Description=Minecraft Server
+         After=network.target
+
+         [Service]
+         User=minecraft
+         WorkingDirectory=/home/minecraft/server
+         ExecStart=/usr/bin/java -Xms4G -Xmx4G -jar server.jar --nogui
+         Restart=on-failure
+         RestartSec=5
+
+         [Install]
+         WantedBy=multi-user.target
+
+      Run ``sudo systemctl enable --now minecraft`` to start and enable it.
+
+Phase 6: Networking & Access
 ----------------------------
 How do players actually get into your world?
 
@@ -164,7 +207,7 @@ How do players actually get into your world?
             sudo ufw enable
       2. **Dedicated IP**: Your VPS usually comes with a static IPv4. You can point a domain A-Record directly to it.
 
-Phase 6: Maintenance & The Long Run
+Phase 7: Maintenance & The Long Run
 -----------------------------------
 A server is not a "set and forget" project. It requires consistent care.
 

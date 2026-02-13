@@ -3,6 +3,10 @@ Welcome to OpenWiki
 
 **OpenWiki** is an uncensored wiki for server ownership (especially administration) for *Minecraft: Java Edition*.
 
+.. note::
+
+   **Unbiased Recommendations**: All software, services, and hosting providers recommended in this wiki are selected solely for their performance, reliability, and utility to the community. We are **not** sponsored by any of the entities mentioned here.
+
 .. tip::
 
    This wiki is built for **low-budget server creation and moderation**. We are here to prove that "premium" doesn't always mean good. Most of the tools and software recommended here are Free and Open Source (FOSS).

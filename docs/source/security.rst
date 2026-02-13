@@ -69,13 +69,25 @@ Hardware fails, plugins bug out, and humans make mistakes. Without a backup, a s
 *   **Off-site Storage**: Never keep your backups only on the same disk as your server. Use S3, Google Drive, or a separate physical drive.
 
 Network Security
-
 ----------------
 
+Protecting your server requires a multi-layered approach to ensure that even if one layer is bypassed, the others remain intact.
 
+.. mermaid::
+
+   graph TD
+       Player((Player)) --> Edge[Edge: Cloudflare / TCPShield]
+       Edge --> FW[Host: UFW Firewall]
+       FW --> Proxy[Proxy: Velocity]
+       Proxy --> Backend[Backend: Paper/Purpur]
+       
+       subgraph Protected Network
+           FW
+           Proxy
+           Backend
+       end
 
 Firewalls
-
 ~~~~~~~~~
 
 If you are hosting from home or a VPS, ensure your firewall (e.g., `ufw` on Linux) only allows traffic on necessary ports (usually `25565`).

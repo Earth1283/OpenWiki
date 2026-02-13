@@ -23,7 +23,7 @@ Setting up a professional-grade server can be daunting. Follow this step-by-step
       :link: hosting
       :link-type: doc
 
-      Don't fall for "unlimited" traps. Learn why VPS hosting is superior to managed hosting and how to find real hardware.
+      Don't fall for "unlimited" traps. Learn why VPS hosting is superior to managed hosting. For power users, see our :doc:`vps_hosting` guide.
       ^^^
       **Key Task**: Compare providers and avoid "Summer Hosts" with impossible pricing.
 
@@ -133,6 +133,7 @@ Contents
    :maxdepth: 4
 
    hosting
+   vps_hosting
    first_server
    plugin_guide
    optimization

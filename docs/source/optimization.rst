@@ -14,6 +14,20 @@ This community-maintained guide is the most comprehensive resource for performan
 Key Performance Concepts
 ------------------------
 
+To optimize a server, you must first understand the **Tick Loop**. A Minecraft server aims to run 20 ticks per second (TPS), meaning each tick has exactly 50ms to complete.
+
+.. mermaid::
+
+   graph TD
+       Start((Tick Start)) --> Input[Process Network Packets]
+       Input --> AI[Entity AI & Logic]
+       AI --> Physics[World Physics & Blocks]
+       Physics --> Save[Autosave / Disk IO]
+       Save --> Output[Send Packets to Players]
+       Output --> End((Tick End))
+       
+       style Save fill:#f66,stroke:#333
+
 Entity Activation Range
 ~~~~~~~~~~~~~~~~~~~~~~~
 Found in `spigot.yml`, this setting controls how close a player must be to an entity (mob, animal, etc.) for it to start :term:`ticking`.

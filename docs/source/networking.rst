@@ -8,6 +8,16 @@ The Proxy: Your Server's Front Door
 
 A :term:`proxy` is a specialized server that sits between the player and your actual game servers. Players connect to the proxy, and the proxy "routes" them to the correct sub-server (e.g., Lobby, Survival, Creative).
 
+.. mermaid::
+
+   graph LR
+       Player((Player)) --> Proxy[Velocity Proxy]
+       Proxy --> Lobby[Lobby Server]
+       Proxy --> Survival[Survival Server]
+       Proxy --> Creative[Creative Server]
+       
+       style Proxy fill:#f9f,stroke:#333,stroke-width:4px
+
 .. tab-set::
 
    .. tab-item:: 🌌 Velocity

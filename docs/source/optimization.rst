@@ -181,6 +181,21 @@ JVM Tuning: Why Aikar's Flags?
 
 You will often see administrators recommending a specific set of Java flags. These aren't magic; they are designed to optimize the **G1 Garbage Collector**.
 
+.. mermaid::
+
+   graph LR
+       subgraph Physical RAM
+           direction TB
+           OS[OS & System: 2-4GB]
+           subgraph JVM Process
+               Heap[Java Heap: -Xmx]
+               NonHeap[Non-Heap / MetaSpace]
+           end
+       end
+       
+       style Heap fill:#e1f5fe,stroke:#01579b,color:#01579b
+       style OS fill:#f5f5f5,stroke:#333,color:#333
+
 *   **-Xmx and -Xms**: Always set these to the same value. This prevents the JVM from constantly resizing its memory pool, which causes lag.
 *   **G1GC**: This collector splits the memory into regions, making it much more efficient at cleaning up "trash" without freezing the game.
 *   **ZGC (Java 21+)**: The future of Minecraft hosting. It offers sub-millisecond pause times, but requires more CPU power. Only use if you have a modern CPU (Ryzen 7000+ / Intel 13th Gen+).

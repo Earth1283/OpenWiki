@@ -3,20 +3,6 @@ Welcome to OpenWiki
 
 **OpenWiki** is an uncensored, community-driven guide for Minecraft server administrators. We focus on technical excellence, financial transparency, and the power of Open Source.
 
-.. mermaid::
-
-   graph LR
-       A[1. Hosting] --> B[2. Setup]
-       B --> C[3. Plugins]
-       C --> D[4. Security]
-       D --> E[5. Scale]
-       
-       style A fill:#e1f5fe,stroke:#01579b,color:#01579b
-       style B fill:#e1f5fe,stroke:#01579b,color:#01579b
-       style C fill:#e1f5fe,stroke:#01579b,color:#01579b
-       style D fill:#e1f5fe,stroke:#01579b,color:#01579b
-       style E fill:#e8f5e9,stroke:#1b5e20,color:#1b5e20
-
 .. note::
 
    **Unbiased Recommendations**: All software, services, and hosting providers recommended here are selected solely for performance and utility. We are **not** sponsored by any entity.

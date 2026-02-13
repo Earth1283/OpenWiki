@@ -8,6 +8,18 @@ VPS vs. Managed Hosting
 
 There are two primary ways to host a Minecraft server: **Virtual Private Servers (VPS)** and **Managed Minecraft Hosting** (often called "shared hosting").
 
+.. mermaid::
+
+   graph TD
+       Start[Ready to Host?] --> Q1{Do you know Linux?}
+       Q1 -- No --> Q2{Want to learn?}
+       Q1 -- Yes --> VPS[VPS Hosting]
+       Q2 -- Yes --> VPS
+       Q2 -- No --> Managed[Managed Hosting]
+       
+       style VPS fill:#e1f5fe,stroke:#01579b,color:#01579b
+       style Managed fill:#fce4ec,stroke:#880e4f,color:#880e4f
+
 .. tab-set::
 
    .. tab-item:: 🐧 VPS (Highly Recommended)

@@ -76,22 +76,82 @@ Protecting your server requires a multi-layered approach to ensure that even if 
 .. mermaid::
 
    graph TD
-       Player((Player)) --> Edge[Edge: Cloudflare / TCPShield]
-       Edge --> FW[Host: UFW Firewall]
+       Player((Player)) --> Edge[Edge: TCPShield / Cloudflare]
+       Edge --> HA[Entry: HAProxy]
+       HA --> FW[Firewall: UFW]
        FW --> Proxy[Proxy: Velocity]
        Proxy --> Backend[Backend: Paper/Purpur]
        
-       subgraph Protected Network
-           direction TB
+       subgraph "Your VPS / Host"
+           HA
            FW
            Proxy
            Backend
        end
        
        style Edge fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
-       style FW fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
+       style HA fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#e65100
+       style FW fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#880e4f
        style Proxy fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
        style Backend fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
+
+HAProxy: The Technical Shield
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While many administrators point players directly to their Velocity proxy, using **HAProxy** as a dedicated entry point adds a layer of professional-grade stability and security. HAProxy is a high-performance TCP load balancer that can handle thousands of concurrent connections with minimal overhead.
+
+**Why use HAProxy?**
+
+*   **IP Masking**: It acts as the "front door," allowing you to keep your Velocity port internal.
+*   **PROXY Protocol**: It can pass the player's real IP address to Velocity even when behind multiple layers of networking.
+*   **Connection Filtering**: It can drop malicious or malformed TCP packets before they even reach your Minecraft software.
+
+Complete Setup Guide
+^^^^^^^^^^^^^^^^^^^^
+
+1.  **Installation**:
+    On Ubuntu/Debian:
+    .. code-block:: bash
+
+       sudo apt update && sudo apt install haproxy -y
+
+2.  **Configuration**:
+    Edit the config file: ``sudo nano /etc/haproxy/haproxy.cfg``. Append the following configuration:
+
+    .. code-block:: haproxy
+
+       frontend minecraft_front
+           bind *:25565
+           mode tcp
+           option tcplog
+           default_backend velocity_backend
+
+       backend velocity_backend
+           mode tcp
+           # The 'send-proxy' flag is CRITICAL for passing player IPs
+           server velocity_node 127.0.0.1:25577 send-proxy
+
+3.  **Enable PROXY Protocol in Velocity**:
+    In your ``velocity.toml``, ensure you have the following set:
+
+    .. code-block:: toml
+
+       [advanced]
+       # This allows Velocity to read the IP data sent by HAProxy
+       haproxy-protocol = true
+
+4.  **Firewall Lockdown**:
+    Once HAProxy is running, you should block external access to your Velocity port (25577) so players *must* go through HAProxy.
+
+    .. code-block:: bash
+
+       sudo ufw allow 25565/tcp # HAProxy
+       sudo ufw deny 25577/tcp  # Block direct Velocity access
+       
+       # Check configuration syntax before restarting
+       sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+       
+       sudo systemctl restart haproxy
 
 Firewalls
 ~~~~~~~~~

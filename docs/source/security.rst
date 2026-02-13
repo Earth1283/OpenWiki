@@ -82,10 +82,16 @@ Protecting your server requires a multi-layered approach to ensure that even if 
        Proxy --> Backend[Backend: Paper/Purpur]
        
        subgraph Protected Network
+           direction TB
            FW
            Proxy
            Backend
        end
+       
+       style Edge fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
+       style FW fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
+       style Proxy fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
+       style Backend fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
 
 Firewalls
 ~~~~~~~~~

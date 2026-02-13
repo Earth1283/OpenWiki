@@ -16,7 +16,7 @@ A :term:`proxy` is a specialized server that sits between the player and your ac
        Proxy --> Survival[Survival Server]
        Proxy --> Creative[Creative Server]
        
-       style Proxy fill:#f9f,stroke:#333,stroke-width:4px
+       style Proxy fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
 
 .. tab-set::
 

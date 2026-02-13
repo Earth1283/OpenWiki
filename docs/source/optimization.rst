@@ -26,7 +26,7 @@ To optimize a server, you must first understand the **Tick Loop**. A Minecraft s
        Save --> Output[Send Packets to Players]
        Output --> End((Tick End))
        
-       style Save fill:#f66,stroke:#333
+       style Save fill:#fff4e5,stroke:#663c00,stroke-width:2px,color:#663c00
 
 Entity Activation Range
 ~~~~~~~~~~~~~~~~~~~~~~~

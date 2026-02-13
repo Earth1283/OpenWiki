@@ -17,7 +17,7 @@ Understanding the difference in control is key to choosing the right environment
        subgraph Managed Architecture
            Managed --> Panel[Web Panel]
            Panel --> Game[Minecraft Instance]
-           style Managed fill:#f9f,stroke:#333
+           style Managed fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#880e4f
        end
        
        subgraph VPS Architecture
@@ -26,7 +26,7 @@ Understanding the difference in control is key to choosing the right environment
            OS --> Docker[Docker / Panels]
            Docker --> Instance1[Instance 1]
            Docker --> Instance2[Instance 2]
-           style VPS fill:#bbf,stroke:#333
+           style VPS fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
        end
 
 MCSManager: The Modern Panel

@@ -1,20 +1,38 @@
 Welcome to OpenWiki
 ===================================
 
-**OpenWiki** is an uncensored wiki for server ownership (especially administration) for *Minecraft: Java Edition*.
+**OpenWiki** is an uncensored, community-driven guide for Minecraft server administrators. We focus on technical excellence, financial transparency, and the power of Open Source.
+
+.. mermaid::
+
+   graph LR
+       A[1. Hosting] --> B[2. Setup]
+       B --> C[3. Plugins]
+       C --> D[4. Security]
+       D --> E[5. Scale]
+       
+       style A fill:#e1f5fe,stroke:#01579b,color:#01579b
+       style B fill:#e1f5fe,stroke:#01579b,color:#01579b
+       style C fill:#e1f5fe,stroke:#01579b,color:#01579b
+       style D fill:#e1f5fe,stroke:#01579b,color:#01579b
+       style E fill:#e8f5e9,stroke:#1b5e20,color:#1b5e20
 
 .. note::
 
-   **Unbiased Recommendations**: All software, services, and hosting providers recommended in this wiki are selected solely for their performance, reliability, and utility to the community. We are **not** sponsored by any of the entities mentioned here.
+   **Unbiased Recommendations**: All software, services, and hosting providers recommended here are selected solely for performance and utility. We are **not** sponsored by any entity.
 
-.. tip::
+Our Philosophy
+--------------
 
-   This wiki is built for **low-budget server creation and moderation**. We are here to prove that "premium" doesn't always mean good. Most of the tools and software recommended here are Free and Open Source (FOSS).
+*   **FOSS First**: If a free, open-source tool exists that matches or exceeds a "premium" one, we will always recommend the FOSS option.
+*   **Technical Truth**: We don't use marketing buzzwords. If a host says "Unlimited," we'll explain why they're lying.
+*   **Performance Focused**: We prioritize Ticks Per Second (TPS) and player experience above all else.
 
 The Administrator's Roadmap
 ---------------------------
 
-Setting up a professional-grade server can be daunting. Follow this step-by-step guide to go from a blank folder to a thriving community.
+Phase 1: Foundation & Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. grid:: 1 1 2 2
    :gutter: 3
@@ -25,106 +43,113 @@ Setting up a professional-grade server can be daunting. Follow this step-by-step
 
       Don't fall for "unlimited" traps. Learn why VPS hosting is superior to managed hosting. For power users, see our :doc:`vps_hosting` guide.
       ^^^
-      **Key Task**: Compare providers and avoid "Summer Hosts" with impossible pricing.
+      **Key Task**: Compare providers and avoid "Summer Hosts."
 
-   .. grid-item-card:: 2. Preparation & Environment
+   .. grid-item-card:: 2. OS & Java Setup
       :link: first_server
       :link-type: doc
 
-      Once you have your host, you need a solid environment. Install the correct Java version and prepare your OS (Windows, Linux, or macOS).
+      Configure your environment correctly. Install Java 21 and set up user permissions.
       ^^^
-      **Key Task**: Install Java 21 and configure your user permissions.
+      **Key Task**: Set up a non-root user and install the JRE.
 
    .. grid-item-card:: 3. Software Selection
       :link: first_server
       :link-type: doc
 
-      Choose the right "flavor" of Minecraft. For most, PaperMC is the standard, while PurpurMC offers more "fun" tweaks.
+      Choose between Paper, Purpur, or Folia based on your server's goals.
       ^^^
-      **Key Task**: Download the latest build of Paper or Purpur.
+      **Key Task**: Download and verify your server JAR.
 
-   .. grid-item-card:: 4. Plugin Selection & Evaluation
+Phase 2: Configuration & Performance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. grid:: 1 1 2 2
+   :gutter: 3
+
+   .. grid-item-card:: 4. Plugin Evaluation
       :link: plugin_guide
       :link-type: doc
 
-      Don't bloat your server. Learn where to find high-quality plugins and how to avoid "premium" scams.
+      Learn where to find high-quality plugins and how to avoid "premium" scams.
       ^^^
-      **Key Task**: Choose your core plugins and verify their source.
+      **Key Task**: Audit your plugin list for "Main Thread" bloat.
 
-   .. grid-item-card:: 5. Core Configuration
-      :link: first_server
-      :link-type: doc
-
-      Understand server configuration and the hidden performance toggles that stop lag before it starts.
-      ^^^
-      **Key Task**: Set simulation distance to 5 and enable online-mode.
-
-   .. grid-item-card:: 6. Launching & JVM Tuning
-      :link: first_server
-      :link-type: doc
-
-      Don't just double-click a JAR. Use Aikar's Flags or ZGC to ensure smooth gameplay without "Lag Spikes."
-      ^^^
-      **Key Task**: Create a startup script with optimized memory flags.
-
-   .. grid-item-card:: 7. Optimization
+   .. grid-item-card:: 5. Core Optimization
       :link: optimization
       :link-type: doc
 
-      Squeeze every drop of performance. Pre-generate your world and tune entity activation ranges to save CPU cycles.
+      Squeeze every drop of performance from your CPU.
       ^^^
-      **Key Task**: Use the Chunky plugin to pre-generate a 5,000-block radius.
+      **Key Task**: Pre-generate worlds and tune entity activation.
 
-   .. grid-item-card:: 8. Security & Stability
+   .. grid-item-card:: 6. Security & Backups
       :link: security
       :link-type: doc
 
-      Protect your hard work. Set up LuckPerms, land claims, and automated off-site backups.
+      Protect your data and your players.
       ^^^
-      **Key Task**: Install LuckPerms and configure a daily backup schedule.
+      **Key Task**: Configure LuckPerms and off-site backups.
 
-   .. grid-item-card:: 9. Networking & Access
+Phase 3: Scaling & Community
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. grid:: 1 1 2 2
+   :gutter: 3
+
+   .. grid-item-card:: 7. Networking & Proxies
       :link: networking
       :link-type: doc
 
-      Open your doors to the world. Learn about port forwarding, VPS hosting, and DDoS protection.
+      Link multiple servers and protect your backend IP.
       ^^^
-      **Key Task**: Configure your firewall and point a domain to your IP.
+      **Key Task**: Set up Velocity and Geyser for Bedrock support.
 
-   .. grid-item-card:: 10. Maintenance & Debugging
+   .. grid-item-card:: 8. Debugging & Maintenance
       :link: troubleshooting
       :link-type: doc
 
-      A server is a living thing. Learn how to update safely and monitor performance with Spark.
+      A server is a living thing. Learn how to monitor and fix issues.
       ^^^
-      **Key Task**: Run a Spark profiler to identify performance bottlenecks.
+      **Key Task**: Use Spark to identify performance bottlenecks.
 
 Avoid Common Pitfalls
 ---------------------
 
-Don't let your project fail before it even starts. Learn from the mistakes of others.
+.. grid:: 1 2 2 2
+   :gutter: 2
 
-*   **The Plugin Guide**: Learn how to evaluate plugins and avoid overpaying for features.
-    | :doc:`plugin_guide`
-*   **Networking & Proxies**: Learn how to scale your server and support Bedrock players.
-    | :doc:`networking`
-*   **Troubleshooting**: Master the art of reading logs and fixing crashes.
-    | :doc:`troubleshooting`
-*   **The FOSS Alternative Table**: Don't overspend. Many "premium" plugins have high-quality free and open-source alternatives.
-    | :doc:`plugin_alternatives`
-*   **Summer Hosts**: Learn how to spot fly-by-night hosting companies that will disappear with your money.
-    | :doc:`summer_hosts`
-*   **The Hall of Shame**: A historical record of hosting failures and scams to avoid.
-    | :doc:`hall_of_shame`
-*   **Jargon Buster**: Confused by terms like "TPS," "Heap," or "Fork"?
-    | :doc:`glossary`
+   .. grid-item-card:: 🛑 The "Summer Host" Trap
+      :link: summer_hosts
+      :link-type: doc
+      :class-header: sd-bg-danger sd-text-white
+
+      Learn to spot fly-by-night companies before they take your money.
+
+   .. grid-item-card:: 💸 Premium Scams
+      :link: plugin_alternatives
+      :link-type: doc
+      :class-header: sd-bg-warning sd-text-white
+
+      Stop overpaying. Find high-quality FOSS alternatives to "Pro" plugins.
+
+   .. grid-item-card:: 📜 Jargon Buster
+      :link: glossary
+      :link-type: doc
+      :class-header: sd-bg-info sd-text-white
+
+      Confused by terms like "TPS," "Heap," or "Folia"? We break it down.
+
+   .. grid-item-card:: 💀 The Hall of Shame
+      :link: hall_of_shame
+      :link-type: doc
+      :class-header: sd-bg-dark sd-text-white
+
+      A historical record of hosting failures and community scams.
 
 .. note::
 
-   If you wish to download this project as an archived PDF/EPUB file,
-   click the ⑂ icon on the bottom right corner that reads "⑂ latest ▾".
-   Click the downwards pointing arrow (▾), and you can now select the preferred download method,
-   PDF or EPUB. Choose your preferred method.
+   If you wish to download this project as an archived PDF/EPUB file, click the ⑂ icon on the bottom right corner.
 
 Contents
 --------

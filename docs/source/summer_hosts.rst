@@ -138,6 +138,17 @@ How many of these boxes does your potential host check? Use this grid to evaluat
 Common Red Flags
 ----------------
 
+.. mermaid::
+
+   graph LR
+       A[June: Launch] --> B[July: Peak Sales]
+       B --> C[August: Support Lag]
+       C --> D{September}
+       D -- School Starts --> E[Exit Scam / Shutdown]
+       D -- "Owner Bored" --> E
+       
+       style E fill:#fff4e5,stroke:#663c00,stroke-width:2px,color:#663c00
+
 .. tab-set::
 
    .. tab-item:: Technical Signs

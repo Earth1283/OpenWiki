@@ -70,6 +70,26 @@ Minecraft's main logic runs on a single thread (the "Main Thread"). If a plugin 
 *   **Good Plugins**: Perform heavy lifting (Database, I/O, Web Requests) **Asynchronously** (on a separate thread).
 *   **Bad Plugins**: Do everything on the main thread, causing "stutters" every time a player joins or a save occurs.
 
+.. mermaid::
+
+   graph TD
+       subgraph Synchronous (BAD)
+           T1[Main Thread] --> P1[Game Logic]
+           P1 --> DB[Slow DB Query]
+           DB --> P2[Next Game Tick]
+           Note over DB: Server Hangs Here
+       end
+       
+       subgraph Asynchronous (GOOD)
+           T2[Main Thread] --> P3[Game Logic]
+           P3 --> P4[Next Game Tick]
+           T3[Async Thread] -.-> DB2[Slow DB Query]
+           P3 -- Offload --> T3
+       end
+       
+       style DB fill:#fff4e5,stroke:#663c00,stroke-width:2px,color:#663c00
+       style P4 fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
+
 .. tip::
 
    Use the :doc:`optimization` tools (like Spark) to see which plugins are "hanging" your main thread. If a plugin shows up with a high percentage in ``/spark profiler open``, it's time to find an alternative.

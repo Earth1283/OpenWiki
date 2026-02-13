@@ -8,6 +8,18 @@ Reading the Logs
 
 Your server's console and the `logs/latest.log` file are your most important tools. They tell you exactly what the server is doing—and why it stopped doing it.
 
+.. mermaid::
+
+   graph TD
+       Error[Error Occurs] --> Log[Check latest.log]
+       Log --> FirstLine[Read FIRST line of Stack Trace]
+       FirstLine --> Identify[Identify Plugin Name]
+       Identify --> Action{Is it a known plugin?}
+       Action -- Yes --> Search[Search GitHub Issues]
+       Action -- No --> System[Check Java/OS version]
+       
+       style FirstLine fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
+
 .. tip::
 
    When asking for help online, **never** take a photo of your screen with a phone. Always share your log file using a service like `mclogs <https://mclogs.org/>`_ or `Pastebin <https://pastebin.com/>`_.
@@ -88,6 +100,21 @@ Finding the Culprit: The Binary Search Method
 ---------------------------------------------
 
 If your server is crashing but you can't figure out which plugin is responsible, use the "Binary Search" method:
+
+.. mermaid::
+
+   graph TD
+       Start[Backup Server] --> Split[Split Plugins in Half]
+       Split --> Run[Start Server with Half A]
+       Run --> Crash{Still Crashing?}
+       Crash -- Yes --> HalfA[Problem is in Half A]
+       Crash -- No --> HalfB[Problem is in Half B]
+       HalfA --> Done{Only 1 Plugin Left?}
+       HalfB --> Done
+       Done -- No --> Split
+       Done -- Yes --> Culprit[Found the Culprit!]
+       
+       style Culprit fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
 
 1.  **Backup your server.**
 2.  Remove **half** of your plugins.

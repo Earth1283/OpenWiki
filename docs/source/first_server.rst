@@ -7,6 +7,24 @@ Setting up a Minecraft server is a rite of passage for many, but doing it **righ
 
 Phase 1: Preparing Your Environment
 -----------------------------------
+
+Before downloading a single file, you must understand how a Minecraft server actually starts.
+
+.. mermaid::
+
+   sequenceDiagram
+       participant OS as Operating System
+       participant JVM as Java Virtual Machine
+       participant JAR as Server JAR (Paper/Purpur)
+       participant World as World Data
+       
+       OS->>JVM: Launch Process (java -jar)
+       JVM->>JAR: Load Classes & Libraries
+       JAR->>JAR: Read Configs (server.properties)
+       JAR->>World: Initialize Map & Entities
+       JAR->>OS: Open Port 25565
+       Note over JAR: "Done! For help, type 'help'"
+
 Before downloading a single file, you must prepare your operating system. Minecraft is a Java-based application, and its performance depends heavily on the environment it runs in.
 
 .. tab-set::
